@@ -2,7 +2,7 @@
   "name": "generator-lntool",
   "version": "0.0.1",
   "description": "LNtool template generator ",
-  "homepage": "https://github.com/LNtools/generator_lntool",
+  "homepage": "https://github.com/LNtools/generator-lntool",
   "author": {
     "name": "Cristian Bertelegni - La Nacion",
     "email": "cristianbertelegni@gmail.com",
