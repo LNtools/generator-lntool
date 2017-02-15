@@ -1,0 +1,8 @@
+{
+    "title_app": "Titulo de la app",
+
+
+    "theme": "generic",
+    "tweet_text": "Este es el twiter text!",
+    "base_url": "."
+}

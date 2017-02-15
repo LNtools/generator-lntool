@@ -1,0 +1,19 @@
+{
+    "name": "<%= appname %>",
+    "description": "<%= description %>",
+    "instructions": "\n",
+    "preview_type": "live",
+    "sample_data": "source/data/autotune.json",
+    "type": "graphic",
+    "tags": [
+        "Example"
+    ],
+    "thumbnail": "thumbnail2.png",
+    "authors": [
+        ""
+    ],
+    "form": {
+    "schema": {
+      },
+  }
+}

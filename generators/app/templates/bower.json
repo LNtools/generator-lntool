@@ -1,0 +1,19 @@
+{
+  "name": "ANTES y DESPUES",
+  "description": "Proyecto LNTOOLS",
+  "main": "index.js",
+  "authors": [
+    "@cbertelegni"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "source/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

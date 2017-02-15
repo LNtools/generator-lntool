@@ -44,7 +44,11 @@
   "repository": "LNtools/generator-lntool",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags && rm -rf build/temp"
   },
   "license": "MIT"
 }

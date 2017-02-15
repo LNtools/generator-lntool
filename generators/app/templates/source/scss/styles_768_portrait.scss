@@ -1,0 +1,31 @@
+// portrait resolutions
+@media screen and (max-width: 768px) { // Ipad & Ipad mini
+
+    h1 {
+        font: normal 22px/28px $suecaslabmedium;
+    }
+
+
+} // end Ipad & Ipad mini
+
+
+@media screen and (max-width: 640px) { // NOTA
+
+} // end NOTA
+
+
+@media screen and (max-width: 375px) { // iphone 6
+
+} // end iphone 6
+
+
+@media screen and (max-width: 414px) { // iphone 6 plus portrait
+
+} // end iphone 6 plus
+
+
+@media screen and (max-width: 320px) { // iphone 5
+
+} // end iphone 5
+
+

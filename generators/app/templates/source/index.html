@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= appname %> - lanacion.com</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <!-- for Iphone -->
+    <meta name="apple-mobile-web-app-capable" content="no">
+
+    <!-- Metadata -->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <meta name="copyright" content="<%= date.getFullYear() %> - LA NACION">
+    <meta name="title" content="<%= appname %> - <%= date.getDate() %>.<%= date.getMonth() %>.<%= date.getFullYear() %>">
+    <meta name="description" content="<%= description %>">
+
+    <meta property="og:url" content="{URL DE ESTE ESPECIAL}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= appname %> - LA NACION">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:image" content="{URL DE LA IMAGEN PRINCIPAL}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@LANACION">
+    <meta name="twitter:title" content="<%= appname %>">
+
+
+    <link rel="stylesheet" type="text/css" href="http://especiales.lanacion.com.ar/multimedia/proyectos/fonts/font.css">
+    <!-- build:css -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+<% if (includeAnalytics) { -%>
+     <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-621326-122', {'name':'especiales'});
+        ga('especiales.send','send', 'pageview');
+        ga('create', 'UA-621326-98', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics -->
+
+    <!-- Begin comScore Tag -->
+    <script>
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "6906398" });
+        (function () {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+    <noscript>
+      <img src="http://b.scorecardresearch.com/p?c1=2&c2=6906398&cv=2.0&cj=1" />
+    </noscript>
+    <!-- End comScore Tag -->
+<% } -%>
+
+</head>
+<body>
+<div class="container clearfix" >
+    <header>
+        <h1><%= appname %></h1>
+        <h2><%= description %></h2>
+    </header>
+
+    <footer>
+        <p>Nota:
+        <br/>
+        Fuente:
+        </p>
+        <a href="./templates/credits.html" class="btn_light ajax_modal" id="creditos">Créditos</a>
+    </footer>
+</div> <!-- end wrapper_all -->
+
+<div id="append"> <!-- div for append dinamics contents... --></div>
+
+<!-- LN LOADER -->
+<div id="loader">
+
+<div id="spinner" style="width: 60px; height: 120px; position: relative; left: 50%; top: 20%; margin-left:-30px; background: url('http://especiales.lanacion.com.ar/multimedia/proyectos/LN_loader/ln.svg') center no-repeat;"></div>
+</div>
+<!-- LN LOADER -->
+
+</body>
+</html>
+
+<!-- PYM -->
+<script src="http://especiales.lanacion.com.ar/multimedia/proyectos/js/pym.min.js" ></script>
+<!-- PYM -->
+
+<script src="http://especiales.lanacion.com.ar/multimedia/proyectos/LN_loader/js/spin.min.js"></script>
+<script>
+    var opts= {lines:40,length:2,width:1,radius:25,corners:0.5,rotate:1,color:"#006998",speed:1, trail:60,shadow:false,hwaccel:false,className:"spinner",zIndex:2000000000,top:0,left:0};
+    var target=document.getElementById("spinner");
+    var spinner=new Spinner(opts).spin(target);
+</script>
+
+<!-- vendors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.3/d3-queue.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script> -->
+
+<!-- build:js -->
+<script src="js/main.js"></script>
+<!-- endbuild -->
+

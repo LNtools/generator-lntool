@@ -1,0 +1,90 @@
+
+.select2-container {
+    margin-right: 10px;
+    text-align: left;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    font-family: 'Suecaslabmedium', Georgia;
+    color:#29ABE2;
+    text-align: center;
+    line-height: 32px;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #29ABE2;
+    border-radius: 100px;
+    height: 34px;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 4px;
+    right: 9px;
+}
+
+.select2-dropdown{
+    font-family: 'Suecaslabmedium', Georgia;
+}
+
+.select2-results__option {
+    padding: 9px 6px;
+}
+
+/* multiple */
+
+.select2-container--default .select2-selection--multiple{
+    border: 1px solid #dadada;
+    border-radius: 20px;
+    min-height: 34px;
+    
+}
+
+.select2-container--default .select2-search--inline .select2-search__field{
+    font-family: 'Suecaslabmedium', Georgia;
+    color:#000;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    padding: 0 15px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #EDFAFF;
+    border: 0px solid #aaa;
+    border-radius: 15px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 6px 10px;
+    font-family: 'Suecaslabmedium';
+    font-size: 15px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: solid #0084b4 1px;
+    outline: 0;
+        overflow: hidden;
+}
+
+.select2-results__option {
+    padding: 9px 6px;
+    color: #0084b4;
+    font-family: Arial;
+    font-size: 13px;
+    text-align: center;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

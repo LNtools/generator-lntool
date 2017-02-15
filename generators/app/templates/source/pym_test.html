@@ -1,0 +1,97 @@
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>PYMTEST - lanacion.com</title>
+        <meta name="author" content="lanacion.com" />   
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="http://especiales.lanacion.com.ar/multimedia/proyectos/fonts/font.css"  />
+
+        <style>
+            body{margin:0px;}
+
+            header{
+                background-color: #f7f7f7;
+                border-bottom:1px solid #dadada;
+                font: normal 15px 'suecaslabmedium', georgia;
+            }
+
+            header h1{
+                margin: 0px;
+                padding: 10px;
+            }
+
+            input{
+                position: absolute;
+                width: 60%;
+                top: 10px;
+                right: 10px;
+                border: 1px solid #dadada;
+                border-radius: 7px;
+                padding: 6px 10px;
+                transition: all 0.5s;
+                margin-top: 5px;
+                outline: none
+            }
+
+            div#contenedor{
+                border:2px solid red; 
+                padding:30px;
+                text-align: center;
+                font-family: Arial, Helvetica;
+                color:red;
+            }
+
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+    </head>
+    <body>
+        <header>
+            <h1>PYM TEST</h1>
+            <input placeholder="Pega la url de la app para y dale al 'Enter'"></input>
+        </header>
+
+        <div id="contenedor">No se cargo el Pym</div>
+        
+        <script src="http://especiales.lanacion.com.ar/multimedia/proyectos/js/pym.min.js" ></script>
+
+        <script>
+            
+            var url;
+            $(document).keypress(function(e) {
+                
+                if(e.which == 13) {
+
+                   url = $("input").val();
+
+                   if(url != "" ){ 
+                        $("#contenedor").html("");
+                        activapym(); 
+                   };
+                };
+
+
+            });
+
+
+            function activapym(){
+                var pymParent =  new pym.Parent('contenedor', url, {});
+            
+                pymParent.onMessage('pymEspecialesLoaded', function() {
+                    pymParent.sendMessage('setShareUrl', document.URL);
+                });
+
+            };
+
+
+        </script>
+
+    </body>
+</html>
+
