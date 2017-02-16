@@ -1,6 +1,6 @@
 {
   "name": "generator-lntool",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "LNtool template generator ",
   "homepage": "https://github.com/LNtools/generator-lntool",
   "author": {
@@ -48,7 +48,7 @@
     "test": "gulp",
 
     "preversion": "npm test",
-    "version": "npm run build && git add -A dist",
+    // "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags && rm -rf build/temp"
   },
   "license": "MIT"
