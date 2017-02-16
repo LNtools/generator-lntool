@@ -13,7 +13,8 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
+    "lntools",
+    "autotune",
     "yeoman-generator"
   ],
   "dependencies": {

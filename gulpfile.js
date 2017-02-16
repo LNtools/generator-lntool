@@ -9,9 +9,24 @@ var nsp = require('gulp-nsp');
 var plumber = require('gulp-plumber');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+
+  var eslint_conf  ={
+        rules: {
+            // 'my-custom-rule': 1,
+            'strict': 0
+        },
+        globals: [
+            'jQuery',
+            '$'
+        ],
+        envs: [
+            'browser'
+        ]
+    };
+
+  return gulp.src('generators/**/*.js')
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint(eslint_conf))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -49,4 +64,6 @@ gulp.task('watch', function () {
 });
 
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['static', 'test']);
+
+// gulp.task('default', ['static', 'test']);
+gulp.task('default', ['test']);
