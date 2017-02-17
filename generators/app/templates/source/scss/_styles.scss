@@ -1,5 +1,5 @@
 /* Styles for App */
-@import "includes/settings";
+@import "variables";
 
 .container{
     overflow: hidden;
@@ -12,14 +12,14 @@
                                   supported by Chrome and Opera */
 }
 
-header { 
+header {
     padding: 0px;
     border-bottom: 1px solid #ccc;
-    margin: 25px 0; 
+    margin: 25px 0;
 
 }
 
-header h1 { 
+header h1 {
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ header h1 {
             min-height: 100%;
             width: 100%;
             background: #fff;
-            
+
         }
 
         // transition: all 0.3s;
@@ -87,7 +87,7 @@ header h1 {
 /* -- switcher --- */
 #switch {
     text-align: center;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 $switch_w: 80px;
@@ -106,7 +106,7 @@ label.switcher {
     cursor: pointer;
     width: $switch_w;
     text-transform:uppercase;
-    
+
     input{
         opacity: 0;
         position: absolute;
@@ -147,15 +147,15 @@ label.switcher {
     }
 
     input:checked ~ .switcher_slide{
-        left: calc(100% - #{$switch_w / 2 + 7px});    
+        left: calc(100% - #{$switch_w / 2 + 7px});
     }
 
-    input:checked ~ .opt{ 
+    input:checked ~ .opt{
         // color: #000;
     }
 
 
-    input:checked ~ .opt:last-child{ 
+    input:checked ~ .opt:last-child{
         color: #fff;
     }
 
@@ -186,7 +186,7 @@ label.switcher {
             & ~ span.antes {
                 color: $color_span;
             }
-        } 
+        }
 
 
 }
