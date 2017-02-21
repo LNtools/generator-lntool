@@ -4,19 +4,33 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    merge = require('merge-stream')
-;
+    merge = require('merge-stream'),
+    browserify = require('gulp-browserify');
+
 
 var conf = require('../conf').conf;
 
-var js_all = require('../conf').js_all; 
-var js_vendor = require('../conf').js_vendor; 
+var js_all = require('../conf').js_all;
+var js_vendor = require('../conf').js_vendor;
 
 
 /** build js */
 
+gulp.task('browserify', function () {
+    return gulp.src("js/main.js", { cwd: conf.app_cwd })
+    .pipe(browserify({
+        // insertGlobals : true,
+        debug : true,
+        paths: [conf.app_cwd+'js/']
+    }))
+    // .pipe(sourcemaps.init({loadMaps: true}))
+    // .pipe(uglify())
+    // .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(conf.app_cwd+'jsbuild'));
+});
+
 gulp.task('js_vendor', function(){
-    gulp.src([ 
+    gulp.src([
         // 'lib/underscore/underscore-min.js',
         // 'lib/d3/d3.min.js',
         // 'lib/jquery/dist/jquery.min.js',

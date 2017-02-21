@@ -16,7 +16,7 @@ gulp.task('default', ['server']);
 gulp.task('build', function() {
 
     runSequence(
-        'make_embed_txt',
+        // 'make_embed_txt',
         'clean_build',
         'sass',
         ['js_vendor', 'js_all', 'minify-css', 'copy'],

@@ -183,20 +183,19 @@ module.exports = generators.extend({
       };
 
       if (this.includeJquery) {
-        bowerJson.dependencies['jquery'] =  "^3.1.1";
+        bowerJson.dependencies['jquery'] =  '^3.1.1';
       }
 
       if (this.includeD3js) {
-        bowerJson.dependencies["d3"] =  "^4.4.0";
+        bowerJson.dependencies['d3'] =  '^4.4.0';
       }
 
-
       if (this.includeD3_queue) {
-        bowerJson.dependencies[ "d3-queue"] =  "^3.0.3";
+        bowerJson.dependencies['d3-queue'] =  '^3.0.3';
       }
 
       if (this.includeHammerjs) {
-        bowerJson.dependencies["hammerjs"] =  "2.0.4";
+        bowerJson.dependencies['hammerjs'] =  '2.0.4';
       }
 
       this.fs.writeJSON('bower.json', bowerJson);

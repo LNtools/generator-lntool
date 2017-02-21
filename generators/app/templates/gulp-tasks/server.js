@@ -41,12 +41,12 @@ gulp.task('reload', ['test_js'], function () {
 
 
 gulp.task('watch', function () {
-  gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['reload']);
+  gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
 });
 
 
 // development server
-gulp.task('server', ['sass', 'connect', 'watch', 'watch_sass']);
+gulp.task('server', ['browserify', 'sass', 'connect', 'watch', 'watch_sass']);
 
 
 // production server
