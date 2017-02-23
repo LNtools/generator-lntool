@@ -15,3 +15,57 @@ $suecaslabthin: 'suecaslabthin', georgia;
 
 
 // Funciones
+
+/** 
+* build arrows 
+* 
+* Ex:
+* &:after {
+*     content: '"';
+*     position: absolute;
+*     top: 0;
+*     right: 0;
+*     @include make_arrow_down(20px, 25px, 30px, #f0f);
+* }
+* 
+*/
+
+@mixin make_arrow_left($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    border-top: $x1 solid transparent;
+    border-bottom: $x2 solid transparent;
+
+    border-right: $width solid $bg;
+}
+
+@mixin make_arrow_right($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    border-top: $x1 solid transparent;
+    border-bottom: $x2 solid transparent;
+
+    border-left: $width solid $bg;
+
+}
+
+@mixin make_arrow_up($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    // border-top: 0 none;
+    border-left: $x1 solid transparent;
+    border-right: $x2 solid transparent;
+
+    border-bottom: $width solid  $bg;
+}
+
+@mixin make_arrow_down($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    // border-top: 0 none;
+    border-left: $x1 solid transparent;
+    border-right: $x2 solid transparent;
+
+    border-top: $width solid  $bg;
+}
+
