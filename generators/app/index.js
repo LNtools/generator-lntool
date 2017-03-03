@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
 var mkdirp = require('mkdirp');
+var vendor_links = require('./vendor_links');
 
 
 module.exports = generators.extend({
@@ -72,7 +73,7 @@ module.exports = generators.extend({
           {
             name: 'Jquery',
             value: 'includeJquery',
-            checked: false
+            checked: true
           }, {
             name: 'D3.js v4',
             value: 'includeD3js',
@@ -88,6 +89,10 @@ module.exports = generators.extend({
           }, {
             name: 'Hammerjs',
             value: 'includeHammerjs',
+            checked: false
+          }, {
+            name: 'Vue.js',
+            value: 'includeVuejs',
             checked: false
           }
         ],
@@ -168,7 +173,7 @@ module.exports = generators.extend({
       var bsPath, bsPlugins;
 
       // path prefix for Bootstrap JS files
-
+      this.features.vendor_links = vendor_links;
       this.fs.copyTpl(
         this.templatePath('source/index.html'),
         this.destinationPath('source/index.html'), this.features  );
@@ -182,21 +187,21 @@ module.exports = generators.extend({
         dependencies: {}
       };
 
-      if (this.includeJquery) {
-        bowerJson.dependencies['jquery'] =  '^3.1.1';
-      }
+      // if (this.includeJquery) {
+      //   bowerJson.dependencies['jquery'] =  '^3.1.1';
+      // }
 
-      if (this.includeD3js) {
-        bowerJson.dependencies['d3'] =  '^4.4.0';
-      }
+      // if (this.includeD3js) {
+      //   bowerJson.dependencies['d3'] =  '^4.4.0';
+      // }
 
-      if (this.includeD3_queue) {
-        bowerJson.dependencies['d3-queue'] =  '^3.0.3';
-      }
+      // if (this.includeD3_queue) {
+      //   bowerJson.dependencies['d3-queue'] =  '^3.0.3';
+      // }
 
-      if (this.includeHammerjs) {
-        bowerJson.dependencies['hammerjs'] =  '2.0.4';
-      }
+      // if (this.includeHammerjs) {
+      //   bowerJson.dependencies['hammerjs'] =  '2.0.4';
+      // }
 
       this.fs.writeJSON('bower.json', bowerJson);
       this.fs.copy(
@@ -212,26 +217,7 @@ module.exports = generators.extend({
       );
     },
 
-    // h5bp: function () {
-    //   this.fs.copy(
-    //     this.templatePath('favicon.ico'),
-    //     this.destinationPath('app/favicon.ico')
-    //   );
-
-    //   this.fs.copy(
-    //     this.templatePath('apple-touch-icon.png'),
-    //     this.destinationPath('app/apple-touch-icon.png')
-    //   );
-
-    //   this.fs.copy(
-    //     this.templatePath('robots.txt'),
-    //     this.destinationPath('app/robots.txt'));
-    // },
-
     styles: function () {
-      var css = 'main';
-
-
       this.fs.copy(
         this.templatePath("source/scss/**/*"),
         this.destinationPath("source/scss/"));
@@ -251,11 +237,35 @@ module.exports = generators.extend({
       );
     },
 
+    thumbnail_autotune: function () {
+      this.fs.copy(
+        this.templatePath('thumbnail.*'),
+        this.destinationPath('./')
+      );
+    },
+
 
     misc: function () {
       mkdirp('source/img');
       // mkdirp('app/fonts');
     }
+
+    // h5bp: function () {
+    //   this.fs.copy(
+    //     this.templatePath('favicon.ico'),
+    //     this.destinationPath('app/favicon.ico')
+    //   );
+
+    //   this.fs.copy(
+    //     this.templatePath('apple-touch-icon.png'),
+    //     this.destinationPath('app/apple-touch-icon.png')
+    //   );
+
+    //   this.fs.copy(
+    //     this.templatePath('robots.txt'),
+    //     this.destinationPath('app/robots.txt'));
+    // },
+
   }, // end writing
 
   install: function () {
