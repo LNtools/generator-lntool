@@ -15,7 +15,7 @@ var js_vendor = require('../conf').js_vendor;
 
 
 /** build js */
-
+var jsbuild = conf.app_cwd+'jsbuild';
 gulp.task('browserify', function () {
     return gulp.src("js/main.js", { cwd: conf.app_cwd })
     .pipe(browserify({
@@ -26,7 +26,7 @@ gulp.task('browserify', function () {
     // .pipe(sourcemaps.init({loadMaps: true}))
     // .pipe(uglify())
     // .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(conf.app_cwd+'jsbuild'));
+    .pipe(gulp.dest(jsbuild));
 });
 
 gulp.task('js_vendor', function(){
@@ -49,7 +49,7 @@ gulp.task('js_all', function(){
     //combine all js files of the app
 
     gulp.src([
-        'js/**/*.js',
+        'jsbuild/**/*.js',
         ], { cwd: conf.app_cwd })
         .pipe(uglify())
         .pipe(concat(js_all))
