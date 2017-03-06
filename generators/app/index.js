@@ -160,7 +160,7 @@ module.exports = generators.extend({
       if(this.features.autotuneProject){
         this.fs.copy(
           this.templatePath('autotune-build'),
-          this.destinationPath('.autotune-build'));
+          this.destinationPath('autotune-build'));
 
         this.fs.copyTpl(
           this.templatePath('autotune-config.json'),

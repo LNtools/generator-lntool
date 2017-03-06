@@ -6,14 +6,48 @@
     "sample_data": "source/data/autotune.json",
     "type": "graphic",
     "tags": [
-        "Example"
+        "graphic"
     ],
-    "thumbnail": "thumbnail2.png",
+    "thumbnail": "thumbnail.png",
     "authors": [
-        ""
+        "LNCreativa"
     ],
     "form": {
-    "schema": {
-      },
+        "schema": {
+            "title": "<%= appname %> - LNTOOL",
+            "type": "object",
+            "description": "<%= description %>",
+            "properties":{
+
+                "title": {
+                    "title": "Nombre del especial <span style='color: #A9A9A9;'>(nombre descriptivo para esta app)</span>",
+                    "required": false,
+                    "type": "string",
+                    "properties": {}
+                },
+
+                "title_app": {
+                    "title": "<span style='color: #A9A9A9;'>Título del especial (Opcional)</span>",
+                    "required": false,
+                    "type": "string",
+                    "properties": {}
+                }
+
+            }
+
+        },
+
+        "options": {
+            "focus": false,
+            "type": "object",
+            "label": "<%= appname %> - LNTOOL",
+            "helpers": [],
+            "validate": true,
+            "disabled": false,
+            "showMessages": true,
+            "collapsible": false,
+            "legendStyle": "button",
+            "fields": {}
+        }
   }
 }

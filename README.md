@@ -1,5 +1,5 @@
 # generator-lntool [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> LNtool template generator 
+> generator-lntool is a [Blueprint] [Autotune] / LNtool template generator 
 
 ## Installation
 
@@ -27,7 +27,7 @@ yo lntool
 
 ## License
 
-MIT © [Cristian Bertelegni - La Nacion]()
+MIT © [La Nacion S.A.](https://github.com/LNtools/generator-lntool/blob/master/LICENSE)
 
 
 [npm-image]: https://badge.fury.io/js/generator-lntool.svg
@@ -36,3 +36,5 @@ MIT © [Cristian Bertelegni - La Nacion]()
 [travis-url]: https://travis-ci.org/LNtools/generator-lntool
 [daviddm-image]: https://david-dm.org/LNtools/generator-lntool.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/LNtools/generator-lntool
+[Autotune]: https://github.com/voxmedia/autotune
+[Blueprint]: https://github.com/voxmedia/autotune/wiki/Getting-started#blueprints
