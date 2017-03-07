@@ -1,5 +1,6 @@
 # generator-lntool [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> generator-lntool is a [Blueprint] [Autotune] / LNtool template generator 
+
+> generator-lntool is a [Blueprint] template generator for [Autotune] & LNtool 
 
 ## Installation
 
