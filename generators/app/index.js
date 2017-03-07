@@ -237,6 +237,20 @@ module.exports = generators.extend({
       );
     },
 
+    templates: function () {
+      this.fs.copy(
+        this.templatePath('source/templates/**/*'),
+        this.destinationPath('source/templates/')
+      );
+    },
+
+    favicon: function () {
+      this.fs.copy(
+        this.templatePath('source/favicon.ico'),
+        this.destinationPath('source/favicon.ico')
+      );
+    },
+
     thumbnail_autotune: function () {
       this.fs.copy(
         this.templatePath('thumbnail.*'),
