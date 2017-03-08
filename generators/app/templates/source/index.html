@@ -19,15 +19,20 @@
     <meta name="title" content="<%= appname %> - <%= date.getDate() %>.<%= date.getMonth() %>.<%= date.getFullYear() %>">
     <meta name="description" content="<%= description %>">
 
+    <!-- Facebook metatags -->
     <meta property="og:url" content="{URL DE ESTE ESPECIAL}">
     <meta property="og:type" content="article">
     <meta property="og:title" content="<%= appname %> - LA NACION">
     <meta property="og:description" content="<%= description %>">
     <meta property="og:image" content="{URL DE LA IMAGEN PRINCIPAL}">
 
+    <!-- Twitter cards -->
+    <meta name="twitter:url" content="{URL DE ESTE ESPECIAL}"  />
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@LANACION">
     <meta name="twitter:title" content="<%= appname %>">
+    <meta name="twitter:description" content="<%= description %>" />
+    <meta name="twitter:site" content="@LANACION">
+    <meta name="twitter:image" content="{URL DE LA IMAGEN PRINCIPAL}" />
 
 
     <link rel="stylesheet" type="text/css" href="http://especiales.lanacion.com.ar/multimedia/proyectos/fonts/font.css">
@@ -35,7 +40,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- endbuild -->
 
-<% if (includeAnalytics) { -%>
+    <% if (includeAnalytics) { -%>
+
     <!-- Google Analytics -->
     <script>
 
@@ -69,7 +75,8 @@
       <img src="http://b.scorecardresearch.com/p?c1=2&c2=6906398&cv=2.0&cj=1" />
     </noscript>
     <!-- End comScore Tag -->
-<% } -%>
+
+    <% } -%>
 
 </head>
 <body>
