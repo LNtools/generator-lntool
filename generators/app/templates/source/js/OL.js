@@ -7,6 +7,7 @@
 * window_width
 * onResizedw
 * btns_ajax_modal
+* bucketImg
 *
 */
 
@@ -53,6 +54,17 @@ module.exports = ( function() {
     /** check if is an iframe */
     is_iframe: function(){
       return window === window.top;
+    },
+      
+    bucketImg: function (_src, _w){
+        var w = _w ? "w"+_w : "";
+        var patBucket = /bucket[0-9]?\.glanacion(.+)?\.(jpg|png)/;
+        var patReplacer = /\.(jpg|png)/;
+        var isBucket = patBucket.test(_src);
+
+        _src = isBucket ? _src.replace(patReplacer, w+"\.$1") : _src;
+
+        return _src;
     },
 
     onResizedw: function () { // on resize stop event
