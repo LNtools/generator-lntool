@@ -57,6 +57,12 @@ module.exports = ( function() {
     },
       
     bucketImg: function (_src, _w){
+        /**
+        * Resize image from LN bucket
+        * @param {string} _src - img url
+        * @param {string} _w - width img
+        *
+        */
         var w = _w ? "w"+_w : "";
         var patBucket = /bucket[0-9]?\.glanacion(.+)?\.(jpg|png)/;
         var patReplacer = /\.(jpg|png)/;
