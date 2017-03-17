@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "especiales-ln-by-gllana";
-  src:url("icons-fonts/especiales-ln-by-gllana.eot");
-  src:url("icons-fonts/especiales-ln-by-gllana.eot?#iefix") format("embedded-opentype"),
-    url("icons-fonts/especiales-ln-by-gllana.woff") format("woff"),
-    url("icons-fonts/especiales-ln-by-gllana.ttf") format("truetype"),
-    url("icons-fonts/especiales-ln-by-gllana.svg#especiales-ln-by-gllana") format("svg");
+  src:url("fonts/especiales-ln-by-gllana.eot");
+  src:url("fonts/especiales-ln-by-gllana.eot?#iefix") format("embedded-opentype"),
+    url("fonts/especiales-ln-by-gllana.woff") format("woff"),
+    url("fonts/especiales-ln-by-gllana.ttf") format("truetype"),
+    url("fonts/especiales-ln-by-gllana.svg#especiales-ln-by-gllana") format("svg");
   font-weight: normal;
   font-style: normal;
 
@@ -133,4 +133,25 @@
 }
 .icon-android-checkmark-circle:before {
   content: "\45";
+}
+.icon-directions:before {
+  content: "\46";
+}
+.icon-cross:before {
+  content: "\47";
+}
+.icon-cancel-circle:before {
+  content: "\48";
+}
+.icon-social-instagram-outline:before {
+  content: "\4a";
+}
+.icon-social-whatsapp:before {
+  content: "\4b";
+}
+.icon-twitter:before {
+  content: "\4c";
+}
+.icon-facebook-square:before {
+  content: "\4e";
 }
