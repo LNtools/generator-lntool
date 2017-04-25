@@ -1,3 +1,4 @@
+'use strict';
 /** mify css files */
 
 var gulp = require('gulp'),
@@ -8,7 +9,7 @@ var gulp = require('gulp'),
 
 var conf = require('../conf').conf;
 
-var css_file_min = require('../conf').css_file_min; 
+var css_file_min = require('../conf').css_file_min;
 
 
 gulp.task('minify-css', function () {
@@ -22,7 +23,7 @@ gulp.task('minify-css', function () {
 
 });
 
-//Without options 
+//Without options
 gulp.task('cssBase64', function () {
     return gulp.src([ 'css/**/*.css' ], { cwd: conf.app_cwd })
         .pipe(cssBase64())

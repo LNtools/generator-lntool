@@ -22,15 +22,18 @@
     "dependencies": {
 
     },
-    "devDependencies": {
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-preset-es2016": "^6.24.1",
+        "babelify": "^7.3.0",
+        "browserify": "^14.3.0",
+        "gulp": "^3.9.1",
         "gulp-browserify": "^0.5.1",
-        "gulp-gh-pages": "^0.5.4",
-        "pre-commit": "^1.2.2",
-        "gulp": "^3.9.0",
         "gulp-clean": "^0.3.2",
         "gulp-concat": "^2.6.0",
         "gulp-connect": "^2.2.0",
         "gulp-css-base64": "^1.3.4",
+        "gulp-gh-pages": "^0.5.4",
         "gulp-html-replace": "^1.6.2",
         "gulp-jshint": "^1.11.2",
         "gulp-minify-css": "^1.2.0",
@@ -38,13 +41,16 @@
         "gulp-requirejs": "^0.1.3",
         "gulp-requirejs-optimize": "^0.1.3",
         "gulp-sass": "^2.3.2",
-        "gulp-sourcemaps": "^1.5.2",
+        "gulp-sourcemaps": "^1.12.0",
         "gulp-uglify": "^1.2.0",
         "gulp-util": "^3.0.7",
         "jshint-stylish": "^2.0.1",
         "merge-stream": "^1.0.0",
+        "pre-commit": "^1.2.2",
         "require-dir": "^0.3.1",
         "run-sequence": "^1.1.2",
-        "vinyl-ftp": "^0.5.0"
-    }
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-ftp": "^0.5.0",
+        "vinyl-source-stream": "^1.1.0"
+      }
 }

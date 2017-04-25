@@ -16,8 +16,6 @@ module.exports = ( function() {
   var OL = {
     init: function () {
 
-
-
       /** if is not in iframe */
       if (OL.is_iframe()) {
         console.log("You are out an iframe ;-)");
@@ -55,7 +53,7 @@ module.exports = ( function() {
     is_iframe: function(){
       return window === window.top;
     },
-      
+
     bucketImg: function (_src, _w){
         /**
         * Resize image from LN bucket

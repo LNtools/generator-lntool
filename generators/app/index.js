@@ -210,6 +210,20 @@ module.exports = generators.extend({
       );
     },
 
+    babelConf: function(){
+        var babelConf  = {
+            "presets": ["es2016"]
+        };
+        this.fs.writeJSON('.babelrc', babelConf);
+    },
+
+    jshintrcConf: function(){
+        var jshintrcConf  = {
+            "esversion": 6
+        };
+        this.fs.writeJSON('.jshintrc', jshintrcConf);
+    },
+
     editorConfig: function () {
       this.fs.copy(
         this.templatePath('editorconfig'),

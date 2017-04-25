@@ -1,3 +1,4 @@
+'use strict';
 /** test JS */
 
 var gulp = require('gulp'),

@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp'),
 	merge = require('merge-stream'),
 	htmlreplace = require('gulp-html-replace'),
@@ -5,9 +6,9 @@ var gulp = require('gulp'),
 ;
 var conf = require('../conf').conf;
 
-var js_all = require('../conf').js_all; 
-var js_vendor = require('../conf').js_vendor; 
-var css_file_min = require('../conf').css_file_min; 
+var js_all = require('../conf').js_all;
+var js_vendor = require('../conf').js_vendor;
+var css_file_min = require('../conf').css_file_min;
 
 
 gulp.task('copy', function () {
@@ -28,11 +29,11 @@ gulp.task('copy', function () {
         .pipe(minifyHTML(opts))
         .pipe(gulp.dest(conf.dest))
         .pipe(gulp.dest(conf.dest+"preview"));
-    
+
     var fonts = gulp.src('css/fonts/*', { cwd: conf.app_cwd })
         .pipe(gulp.dest(conf.dest+'css/fonts'))
         .pipe(gulp.dest(conf.dest+"preview/"+'css/fonts'));
-    
+
     var favicon = gulp.src('favicon.ico', { cwd: conf.app_cwd })
         .pipe(gulp.dest(conf.dest))
         .pipe(gulp.dest(conf.dest+"preview"));
@@ -48,14 +49,14 @@ gulp.task('copy', function () {
     var data = gulp.src('data/*', { cwd: conf.app_cwd })
         .pipe(gulp.dest(conf.dest+'data'))
         .pipe(gulp.dest(conf.dest+"preview/"+'data'));
-        
+
     var templates = gulp.src('templates/*', { cwd: conf.app_cwd })
-        .pipe(gulp.dest(conf.dest+'templates'))   
-        .pipe(gulp.dest(conf.dest+"preview/"+'templates'));   
-    
+        .pipe(gulp.dest(conf.dest+'templates'))
+        .pipe(gulp.dest(conf.dest+"preview/"+'templates'));
+
     var embed = gulp.src('embed.txt', { cwd: conf.app_cwd })
         .pipe(gulp.dest(conf.dest))
         .pipe(gulp.dest(conf.dest+"preview/"));
-        
+
     return merge(html, fonts, favicon, img, css_img, data, templates, embed);
 });

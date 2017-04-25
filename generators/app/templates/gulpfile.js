@@ -13,15 +13,15 @@ var conf = require('./conf').conf;
 // default task
 gulp.task('default', ['server']);
 
-gulp.task('build', function() {
+gulp.task('build', function(cb) {
 
     runSequence(
         'clean_build',
-        'browserify',
-        'sass',
+        // 'browserify',
+        ['build_js', 'sass'],
         ['js_vendor', 'js_all', 'minify-css', 'copy'],
         function(){
-            console.log("Build on ----> %s <---- ok!", conf.dest);
-        })
+            console.log("El Build de la aplicación se creó en  ----> %s <---- ok!", conf.dest);
+            cb();
+        });
 });
-

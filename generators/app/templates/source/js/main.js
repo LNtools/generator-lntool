@@ -1,7 +1,7 @@
 $(function () {
     /** Code! */
 
-    var OL = require('OL');
+    var OL = require('./OL');
 
 
     OL.init()

@@ -1,6 +1,6 @@
+'use strict';
 /** global configs */
-
-let conf = {
+var conf = {
     app_cwd:'source/',
     dest:'build/',
     // autotuneJson:'build/data/autotune.json',

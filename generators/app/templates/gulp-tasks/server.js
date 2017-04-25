@@ -1,3 +1,4 @@
+'use strict';
 /** SERVER TASKS */
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
@@ -23,14 +24,14 @@ gulp.task('sass', function(){
       .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(concat('main.css'))
-      .pipe(sourcemaps.write())
+      .pipe(sourcemaps.write('./'))
       // .pipe(gulp.dest(conf.dest+'css'));
       .pipe(gulp.dest(getPathApp('css')));
 });
 
 
 gulp.task('watch_sass', function () {
-  gulp.watch([getPathApp('scss/**/*.scss')], ['sass', "reload"]);
+  gulp.watch([getPathApp('scss/**/*.scss')], ['sass']);
 });
 
 
@@ -41,12 +42,21 @@ gulp.task('reload', ['test_js'], function () {
 
 
 gulp.task('watch', function () {
-  gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
+  // gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
+  // gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
+  gulp.watch( [getPathApp('*.html')], ['reload']);
+  // gulp.watch([ getPathApp('**/*.css') ], ['reload']);
+
+});
+gulp.task('watch_js', function () {
+  gulp.watch( [getPathApp('js/**/*')], ['build_js', 'reload']);
+
 });
 
 
 // development server
-gulp.task('server', ['browserify', 'sass', 'connect', 'watch', 'watch_sass']);
+// gulp.task('server', ['browserify', 'sass', 'connect', 'watch', 'watch_sass']);
+gulp.task('server', ['build_js', 'sass', 'connect', 'watch', 'watch_sass', 'watch_js']);
 
 
 // production server
