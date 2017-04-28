@@ -18,46 +18,39 @@ gulp.task('connect', function() {
   });
 });
 
-
 gulp.task('sass', function(){
     gulp.src('scss/*.scss', { cwd: conf.app_cwd })
       .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(concat('main.css'))
       .pipe(sourcemaps.write('./'))
-      // .pipe(gulp.dest(conf.dest+'css'));
       .pipe(gulp.dest(getPathApp('css')));
 });
 
+gulp.task('watch', function () {
+  gulp.watch( [getPathApp('*.html'), getPathApp('data/**/*')], ['reload']);
+
+});
 
 gulp.task('watch_sass', function () {
   gulp.watch([getPathApp('scss/**/*.scss')], ['sass']);
+  gulp.watch([getPathApp('css/**/*')], ['reload']);
 });
 
+gulp.task('watch_js', function () {
+  gulp.watch( [getPathApp('jsbuild/**/*')], ['reload']);
+  gulp.watch( [getPathApp('js/**/*')], ['build_js']);
 
+});
+
+/** reload html on browser */
 gulp.task('reload', ['test_js'], function () {
   gulp.src('*.html', { cwd: conf.app_cwd })
     .pipe(connect.reload());
 });
 
-
-gulp.task('watch', function () {
-  // gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
-  // gulp.watch([getPathApp('*.html'), getPathApp('**/*.css'), getPathApp('js/**/*.js') ], ['browserify', 'reload']);
-  gulp.watch( [getPathApp('*.html')], ['reload']);
-  // gulp.watch([ getPathApp('**/*.css') ], ['reload']);
-
-});
-gulp.task('watch_js', function () {
-  gulp.watch( [getPathApp('js/**/*')], ['build_js', 'reload']);
-
-});
-
-
 // development server
-// gulp.task('server', ['browserify', 'sass', 'connect', 'watch', 'watch_sass']);
 gulp.task('server', ['build_js', 'sass', 'connect', 'watch', 'watch_sass', 'watch_js']);
-
 
 // production server
 gulp.task('server_pro', function() {
