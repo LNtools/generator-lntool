@@ -20,7 +20,7 @@ describe('generator-lntool:app', function () {
             './.gitignore',
             './autotune-build',
             './autotune-config.json',
-            './.babelrc',
+            // './.babelrc',
             './.jshintrc',
 
         ]);
