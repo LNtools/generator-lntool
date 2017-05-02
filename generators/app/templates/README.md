@@ -31,6 +31,12 @@ Build Project
 gulp build
 ```
 
+Publish on Github pages
+
+```bash
+npm run publish_gh_pages
+```
+
 Claen build
 
 ```bash
