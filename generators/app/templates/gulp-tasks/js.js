@@ -3,9 +3,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
-var babel = require('babelify');
+var babelify = require('babelify');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+
 
 var conf = require('../conf').conf;
 
@@ -18,8 +19,8 @@ gulp.task('build_js', function(callback) {
 
     var bundler =
                 browserify(conf.app_cwd+'js/main.js', { debug: true })
-                .transform(babel, {global: true})
-            ;
+                .transform("babelify",
+                    {global: true, presets: ["es2015"]});
 
     bundler
         .bundle()
