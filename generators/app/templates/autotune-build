@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # UPDATE_BOWER_COMMAND="bower install"
-BUILD_COMMAND="gulp build"
+BUILD_COMMAND="gulp build-autotune"
 # INPUT_DATA='{}'
 INPUT_DATA=$(</dev/stdin)
 # SAVE_DATA_TO="build/data/autotune.json"

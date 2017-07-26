@@ -1,4 +1,4 @@
-// generated on <%= date %> using <%= name %> <%= version %>
+// generated on 2017-07-26 using generator-lntool 0.3.3
 
 var gulp = require('gulp');
 
@@ -7,19 +7,37 @@ requireDir('./gulp-tasks'),
 runSequence = require('run-sequence')
 ;
 
-var conf = require('./conf').conf;
+var conf = require('./gulp_opts').conf;
 
 
 // default task
-gulp.task('default', ['server']);
+// gulp.task('default', ['express_app']);
+gulp.task('default', ['browser-sync']);
 
-gulp.task('build', function(cb) {
+gulp.task('build-autotune', ['build'], function(cb) { // build para LNTOOLS
+
+    var fs = require('fs');
+    try{
+        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+    }catch(e){
+        console.warn("No se encontro el manifiest.json");
+        var manifest = {};
+        manifest.conf = {};
+    }
+
+     return gulp.src(["**/*"], { cwd: manifest.conf.dest })
+        .pipe(gulp.dest(manifest.conf.dest+"./preview"));
+
+});
+
+
+
+gulp.task('build', ['make_manifest'], function(cb) { // build para Especiales
 
     runSequence(
         'clean_build',
-        // 'browserify',
-        ['build_js', 'sass'],
-        ['js_vendor', 'js_all', 'minify-css', 'copy'],
+        ['build_js', 'sass', 'js_vendor'],
+        ['copy'],
         function(){
             console.log("El Build de la aplicación se creó en  ----> %s <---- ok!", conf.dest);
             cb();

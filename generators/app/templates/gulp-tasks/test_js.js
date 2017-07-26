@@ -6,10 +6,17 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish')
 ;
 
-var conf = require('../conf').conf;
-
-
 gulp.task('test_js', function(){
+
+    try{
+        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+    }catch(e){
+        console.warn("No se encontro el manifiest.json");
+        var manifest = {};
+        manifest.conf = {};
+    }
+    var conf = manifest.conf;
+
     return gulp.src(['js/**/*.js'], { cwd: conf.app_cwd })
         .pipe(jshint())
         .pipe(jshint.reporter('default'))

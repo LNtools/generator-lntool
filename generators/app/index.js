@@ -233,8 +233,8 @@ module.exports = generators.extend({
 
     styles: function () {
       this.fs.copy(
-        this.templatePath("source/scss/**/*"),
-        this.destinationPath("source/scss/"));
+        this.templatePath("source/sass/**/*"),
+        this.destinationPath("source/sass/"));
     },
 
     scripts: function () {

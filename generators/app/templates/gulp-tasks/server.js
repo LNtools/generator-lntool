@@ -1,68 +1,50 @@
+
 'use strict';
-/** SERVER TASKS */
-var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    concat = require('gulp-concat'),
-    conf = require('../conf').conf;
 
 
-function getPathApp(_path){ return conf.app_cwd+ _path; }
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
 
-gulp.task('connect', function() {
-  connect.server({
-    root: conf.app_cwd,
-    livereload: true,
-    port:8080
-  });
-});
+function getPathApp(_path){
 
-gulp.task('sass', function(){
-    gulp.src('scss/*.scss', { cwd: conf.app_cwd })
-      .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(concat('main.css'))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(getPathApp('css')));
-});
+    try{
+        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+    }catch(e){
+        console.warn("No se encontro el manifiest.json");
+        var manifest = {};
+        manifest.conf = {};
+    }
+    var conf = manifest.conf;
 
-gulp.task('watch', function () {
-  gulp.watch( [getPathApp('*.html'), getPathApp('data/**/*')], ['reload']);
+    return conf.app_cwd+ _path;
+}
 
-});
+gulp.task('browser-sync', ['build'], function () {
 
-gulp.task('watch_sass', function () {
-  gulp.watch([getPathApp('scss/**/*.scss')], ['sass']);
-  gulp.watch([getPathApp('css/**/*')], ['reload']);
-});
+    // for more browser-sync config options: http://www.browsersync.io/docs/options/
+    browserSync.init({
 
-gulp.task('watch_js', function () {
-  gulp.watch( [getPathApp('jsbuild/**/*')], ['reload']);
-  gulp.watch( [getPathApp('js/**/*')], ['build_js']);
+        port: 8080,
 
-});
+        files: [conf.dest+"/**/*.*"],
 
-/** reload html on browser */
-gulp.task('reload', ['test_js'], function () {
-  gulp.src('*.html', { cwd: conf.app_cwd })
-    .pipe(connect.reload());
-});
+        // open the proxied app in chrome
+        browser: ['google-chrome'],
+        server: {
+            baseDir: conf.dest
+        }
+    });
 
-// development server
-gulp.task('server', ['build_js', 'sass', 'connect', 'watch', 'watch_sass', 'watch_js']);
+    gulp.watch([conf.dest+"/**/*.*"], function(){
+        browserSync.reload();
+    });
 
-// production server
-gulp.task('server_pro', function() {
-  connect.server({
-    root: 'build',
-    port:9000
-  });
-});
+    gulp.watch( [getPathApp('*.html')], ['html']);
+    gulp.watch( [getPathApp('data/**/*')], ['data']);
 
-// production server
-gulp.task('server_doc', function() {
-  connect.server({
-    root: './DOC_WEBAPP'
-  });
+    gulp.watch([getPathApp('scss/**/*.scss')], ['sass']);
+//   // gulp.watch([getPathApp('css/**/*')], ['minify-css']);
+
+//   gulp.watch( [getPathApp('jsbuild/**/*')], ['js_all']);
+    gulp.watch( [getPathApp('js/**/*')], ['build_js']);
 });

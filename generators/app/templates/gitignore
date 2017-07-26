@@ -1,4 +1,5 @@
 .project
+.publish
 build
 node_modules
 source/lib
