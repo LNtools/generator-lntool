@@ -1,0 +1,86 @@
+
+// paleta colores
+$black: #000000;
+$blue_ln: #0080b0;
+$blue: #00ADEE;
+$red: #B6172C;
+$white: #ffffff;
+
+
+$color_default: $black;
+
+
+// fuentes
+$suecaslabbold: 'suecaslabbold', georgia;
+$suecaslabmedium: 'suecaslabmedium', georgia;
+$suecaslabthin: 'suecaslabthin', georgia;
+$arial: arial, Helvetica, sans-serif;
+
+
+// Funciones
+
+@mixin filterGrayscale($val:100%) {
+    /** append greyscale filter to html node */
+
+    -webkit-filter: grayscale($val) brightness(120%); /* Safari 6.0 - 9.0 */
+    -moz-filter: grayscale($val) brightness(120%);
+    -ms-filter: grayscale($val) brightness(120%);
+    -o-filter: grayscale($val) brightness(120%);
+    filter: grayscale($val) brightness(120%);
+    filter: gray; /* IE 6-9 */
+}
+
+
+/**
+* build arrows
+*
+* Ex:
+* &:after {
+*     content: '"';
+*     position: absolute;
+*     top: 0;
+*     right: 0;
+*     @include make_arrow_down(20px, 25px, 30px, #f0f);
+* }
+*
+*/
+
+@mixin make_arrow_left($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    border-top: $x1 solid transparent;
+    border-bottom: $x2 solid transparent;
+
+    border-right: $width solid $bg;
+}
+
+@mixin make_arrow_right($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    border-top: $x1 solid transparent;
+    border-bottom: $x2 solid transparent;
+
+    border-left: $width solid $bg;
+
+}
+
+@mixin make_arrow_up($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    // border-top: 0 none;
+    border-left: $x1 solid transparent;
+    border-right: $x2 solid transparent;
+
+    border-bottom: $width solid  $bg;
+}
+
+@mixin make_arrow_down($x1, $x2, $width, $bg) {
+    width: 0;
+    height: 0;
+    // border-top: 0 none;
+    border-left: $x1 solid transparent;
+    border-right: $x2 solid transparent;
+
+    border-top: $width solid  $bg;
+}
+
