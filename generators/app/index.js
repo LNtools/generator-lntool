@@ -124,8 +124,8 @@ module.exports = generators.extend({
         this.destinationPath('gulp-tasks/'));
 
       this.fs.copy(
-        this.templatePath('conf.js'),
-        this.destinationPath('conf.js'));
+        this.templatePath('gulp_opts.js'),
+        this.destinationPath('gulp_opts.js'));
     },
 
     packageJSON: function () {
