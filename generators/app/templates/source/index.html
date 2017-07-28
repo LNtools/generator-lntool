@@ -56,9 +56,9 @@
             'name':'especiales',
             'alwaysSendReferrer': true
         });
-        ga('especiales.send', 'pageview', location.pathname);
         // ga('create', 'UA-621326-98', 'auto');
         // ga('send', 'pageview', location.pathname);
+        ga('especiales.send', 'pageview', location.pathname);
         ga('especiales.set', 'appName', document.title);
         /** Track googleA events*/
         window.trackEvent = function(eventName, label, value) {

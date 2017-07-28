@@ -3,7 +3,7 @@
 ## <%= description %>  
 
 
-<% if (autotuneProject) { -%>
+
 ![title](thumbnail.jpg)
 
 ## Activar el Live preview en Autotune
@@ -13,31 +13,64 @@
 
 ## Commands: 
 
-install dependences
+### Install dependences
 
 ```bash
 npm install && bower install
 ```
 
-Run server for dev
+
+### Run server for dev
 
 ```bash
-gulp server
+gulp
 ```
 
-Build Project
+
+### Build Project
 
 ```bash
 gulp build
 ```
 
-Publish on Github pages
+
+### Build Project For Autotune
+
+```bash
+gulp build-autotune
+```
+
+
+### Make manifest file
+
+```bash
+gulp make_manifest
+```
+
+
+### Build Sass
+
+```bash
+gulp sass
+```
+
+
+### Publish on Github pages
+
+```bash
+npm run test
+```
+
+
+### Publish on Github pages
 
 ```bash
 npm run publish_gh_pages
 ```
 
-Claen build
+
+
+### Claen build
 
 ```bash
 gulp clean_build
@@ -52,19 +85,23 @@ gulp clean_build
 └── source: carpeta que contiene el código fuente de la app <br>
 
 
+<% if (autotuneProject) { -%>
+
 ## Archivos de configuración
 
 ### autotune-config.json
 
-escribir ....
+[Autotune Documentation](https://github.com/voxmedia/autotune/wiki/File-info%3A-autotune-config.json)
 
 ### autotune-build:
 
-escribir....
+[Autotune Documentation](https://github.com/kavyasukumar/autotune-slideshow/blob/master/autotune-build)
 
-
-### config.js
-
-escribir....
 
 <% } -%>
+
+
+
+### gulp_opts.js
+
+Commons vars for gulp tasks
