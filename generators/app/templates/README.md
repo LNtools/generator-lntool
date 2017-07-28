@@ -55,6 +55,13 @@ gulp sass
 ```
 
 
+### Save json form array data
+
+```bash
+gulp array_to_obj
+```
+
+
 ### Publish on Github pages
 
 ```bash
