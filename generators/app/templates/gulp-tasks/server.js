@@ -6,17 +6,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 
 function getPathApp(_path){
-
-    try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        var manifest = {};
-        manifest.conf = {};
-    }
-    var conf = manifest.conf;
-
-    return conf.app_cwd+ _path;
+    return "source/"+ _path;
 }
 
 gulp.task('browser-sync', ['build'], function () {
@@ -26,23 +16,24 @@ gulp.task('browser-sync', ['build'], function () {
 
         port: 8080,
 
-        files: [conf.dest+"/**/*.*"],
+        files: ["build/**/*.*"],
 
         // open the proxied app in chrome
-        browser: ['google-chrome'],
+        // browser: ['google-chrome'],
+        open: false,
         server: {
-            baseDir: conf.dest
+            baseDir: "build/"
         }
     });
 
-    gulp.watch([conf.dest+"/**/*.*"], function(){
+    gulp.watch(["build/**/*.*"], function(){
         browserSync.reload();
     });
 
     gulp.watch( [getPathApp('*.html')], ['html']);
     gulp.watch( [getPathApp('data/**/*')], ['data']);
 
-    gulp.watch([getPathApp('scss/**/*.scss')], ['sass']);
+    gulp.watch([getPathApp('sass/**/*.scss')], ['sass']);
 //   // gulp.watch([getPathApp('css/**/*')], ['minify-css']);
 
 //   gulp.watch( [getPathApp('jsbuild/**/*')], ['js_all']);

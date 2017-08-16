@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var file = require('gulp-file');
 var request = require('request');
 

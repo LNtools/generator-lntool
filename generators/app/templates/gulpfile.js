@@ -1,4 +1,4 @@
-// generated on 2017-07-26 using generator-lntool 0.3.3
+// <%= appname %> generated on <%= date %> using https://github.com/LNtools/generator-lntool <%= version %>
 
 var gulp = require('gulp');
 
