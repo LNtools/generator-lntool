@@ -1,8 +1,18 @@
+// // import Promise from 'promise-polyfill';
+
+// // To add to window
+// if (!window.Promise) {
+//   window.Promise = Promise;
+// }
+
+
 $(function () {
     /** Code! */
 
-    var OL = require('./OL');
 
+    // import OL from "./ol";
+
+    var OL = require('./ol');
 
     OL.init()
       .loader.anima();
@@ -10,8 +20,6 @@ $(function () {
 
     // Esconder spiner
     OL.loader.hide();
-
-
 
 
     /**

@@ -104,31 +104,43 @@ module.exports = generators.extend({
       answers.date = new Date();
       this.features = answers;
 
+
     }.bind(this));
   },
 
   writing: {
     gulpfile: function () {
+
+        var _data = {
+          date: (new Date).toISOString().split('T')[0],
+          year: (new Date).toISOString().split('T')[0].split("-")[0].slice(2),
+          month: (new Date).toISOString().split('T')[0].split("-")[1],
+          name: this.pkg.name,
+          version: this.pkg.version,
+          appname: this.features.appname
+        }
+
       this.fs.copyTpl(
         this.templatePath('gulpfile.js'),
         this.destinationPath('gulpfile.js'),
-        {
-          date: (new Date).toISOString().split('T')[0],
-          name: this.pkg.name,
-          version: this.pkg.version
-        }
+        _data
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('gulp-tasks/**/*'),
-        this.destinationPath('gulp-tasks/'));
+        this.destinationPath('gulp-tasks/'),
+        _data
+        );
 
       this.fs.copy(
-        this.templatePath('conf.js'),
-        this.destinationPath('conf.js'));
+        this.templatePath('gulp_opts.js'),
+        this.destinationPath('gulp_opts.js'));
     },
 
     packageJSON: function () {
+
+
+
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
@@ -233,8 +245,8 @@ module.exports = generators.extend({
 
     styles: function () {
       this.fs.copy(
-        this.templatePath("source/scss/**/*"),
-        this.destinationPath("source/scss/"));
+        this.templatePath("source/sass/**/*"),
+        this.destinationPath("source/sass/"));
     },
 
     scripts: function () {
@@ -248,6 +260,13 @@ module.exports = generators.extend({
       this.fs.copy(
         this.templatePath('source/data/**/*'),
         this.destinationPath('source/data/')
+      );
+    },
+
+    s3Credentials: function () {
+      this.fs.copy(
+        this.templatePath('s3Credentials.json.tmpl'),
+        this.destinationPath('s3Credentials.json.tmpl')
       );
     },
 

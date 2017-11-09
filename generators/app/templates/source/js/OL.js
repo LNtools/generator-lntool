@@ -126,7 +126,7 @@ module.exports = ( function() {
           $append.fadeIn();
 
           // when modal is closed cleaner append div
-          $(".modal, .cerrarconsolereditos", $append).on("click", function(){
+          $(".cerrar_creditos", $append).on("click", function(){
             $append.fadeOut("fast", function(){ $append.html(""); });
             return false;
           });
