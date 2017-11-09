@@ -5,7 +5,11 @@ $(function () {
 
 
     OL.init()
-        .loader.hide();
+      .loader.anima();
+
+
+    // Esconder spiner
+    OL.loader.hide();
 
 
 
