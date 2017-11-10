@@ -70,11 +70,17 @@ module.exports = ( function() {
                   context.stroke();
               }
               context.restore();
+             
+              // destroy interval
+              if(  $(".preload").hasClass("off") ){
+                clearInterval(interval);
+              }
+                
           };
           window.setInterval(draw, 1000 / 30);
       },
       show: function() { OL.loader.$loader.fadeIn(); },
-      hide: function() { OL.loader.$loader.fadeOut("slow"); }
+      hide: function() { OL.loader.$loader.addClass("off").fadeOut("slow"); }
     },
 
     /** check if is an iframe */
