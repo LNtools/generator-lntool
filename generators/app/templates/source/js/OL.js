@@ -49,6 +49,7 @@ module.exports = ( function() {
           var canvas = document.getElementById('spinner');
           var context = canvas.getContext('2d');
           var start = new Date();
+          var interval = "";
           var lines = 26,  
               cW = context.canvas.width,
               cH = context.canvas.height;
@@ -77,7 +78,7 @@ module.exports = ( function() {
               }
                 
           };
-          window.setInterval(draw, 1000 / 30);
+          interval = window.setInterval(draw, 1000 / 30);
       },
       show: function() { OL.loader.$loader.fadeIn(); },
       hide: function() { OL.loader.$loader.addClass("off").fadeOut("slow"); }
