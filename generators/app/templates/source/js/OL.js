@@ -154,8 +154,8 @@ module.exports = ( function() {
       var r = {};
       if(u){
         u = decodeURIComponent(u.replace(/\?|\#/g,"")).split(/\&/);
-        u.forEach(function(cfunction, i){
-          c = c.split("=");
+        u.forEach(function(c, i){
+          var c = c.split("=");
 
           var key = c[0].toLowerCase();
           var value = c[1];
