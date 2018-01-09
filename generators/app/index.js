@@ -103,6 +103,7 @@ module.exports = generators.extend({
 
       answers.date = new Date();
       this.features = answers;
+      this.features.slug = _s.slugify(this.features.appname);
 
 
     }.bind(this));
@@ -117,7 +118,8 @@ module.exports = generators.extend({
           month: (new Date).toISOString().split('T')[0].split("-")[1],
           name: this.pkg.name,
           version: this.pkg.version,
-          appname: this.features.appname
+          appname: this.features.appname,
+          slug: this.features.appname.toLowerCase().replace(/\s/g, "-").replace(/[\.\!\¿\¡\?]/g, ""),
         }
 
       this.fs.copyTpl(
