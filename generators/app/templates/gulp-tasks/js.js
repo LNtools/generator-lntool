@@ -30,6 +30,7 @@ gulp.task('build_js', function(callback) {
 
     bundler
         .bundle()
+        .on('end', function(err) {  callback(); })
         .on('error', function(err) { console.error(err); this.emit('end'); })
         .pipe(source(manifest.js_all))
         .pipe(buffer())
@@ -37,10 +38,8 @@ gulp.task('build_js', function(callback) {
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(manifest.conf.dest+ "js"))
-        // .pipe(gulp.dest(jsbuild))
         .emit('end');
 
-        callback();
 });
 
 gulp.task('js_vendor', function(){

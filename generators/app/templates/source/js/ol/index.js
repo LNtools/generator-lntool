@@ -9,6 +9,7 @@ module.exports.name = "OL helpers";
 module.exports.bucketImg = require("./src/bucketImg");
 module.exports.paramToObj = require("./src/param_to_obj");
 module.exports.getGdocUrlCdn = require("./src/get_gdoc_url_cdn");
+module.exports.loader = require("./src/loader");
 
 
 module.exports.init = function () {
@@ -49,6 +50,7 @@ module.exports.is_iframe = function(){
     return window === window.top;
 };
 
+module.exports.isLNiframe = document.referrer.match(/^https?://(www.)?(\w+.)?lanacion.com.ar/);
 
 module.exports.onResizedw = function () { // on resize stop event
 

@@ -13,13 +13,14 @@ describe('generator-lntool:app', function () {
     it('creates files', function () {
         assert.file([
             './package.json',
-            './conf.js',
+            './gulp_opts.js',
             './gulpfile.js',
             './source/index.html',
             './README.md',
             './.gitignore',
             './autotune-build',
             './autotune-config.json',
+            './s3Credentials.json.tmpl',
             // './.babelrc',
             './.jshintrc',
 
