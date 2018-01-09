@@ -134,9 +134,17 @@ module.exports = generators.extend({
         _data
         );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('gulp_opts.js'),
-        this.destinationPath('gulp_opts.js'));
+        this.destinationPath('gulp_opts.js'),
+        _data
+        );
+
+      this.fs.copyTpl(
+        this.templatePath('tests/**/*'),
+        this.destinationPath('tests'),
+        _data
+        );
     },
 
     packageJSON: function () {

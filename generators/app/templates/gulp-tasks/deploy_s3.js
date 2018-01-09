@@ -23,7 +23,7 @@ gulp.task('deploy', function () {
 
 
     var options = {
-            uploadPath: '/<%= year %>/<%= month %>/<%= slug %>'
+            uploadPath: manifest.conf.uploadPath
             // headers: {
             // //     // 'Cache-Control': 'max-age=1, no-transform, public',
             //     // 'Vary': 'Accept-Encoding'

@@ -5,7 +5,8 @@ var conf = {
     dest:'build/',
     // autotuneJson:'build/data/autotune.json',
     autotuneJson:'source/data/autotune.json',
-    commit: Math.floor(Date.now() / 1000)
+    commit: Math.floor(Date.now() / 1000),
+    uploadPath: '/<%= year %>/<%= month %>/<%= slug %>'
 };
 
 module.exports.conf = conf;
