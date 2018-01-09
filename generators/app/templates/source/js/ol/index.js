@@ -50,7 +50,7 @@ module.exports.is_iframe = function(){
     return window === window.top;
 };
 
-module.exports.isLNiframe = document.referrer.match(/^https?://(www.)?(\w+.)?lanacion.com.ar/);
+module.exports.isLNiframe = document.referrer.match(/^https?:\/\/(www.)?(\w+.)?lanacion.com.ar/);
 
 module.exports.onResizedw = function () { // on resize stop event
 
