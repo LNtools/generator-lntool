@@ -15,7 +15,7 @@ describe('generator-lntool:app', function () {
             './package.json',
             './gulp_opts.js',
             './gulpfile.js',
-            './source/index.html',
+            // './source/index.html',
             './README.md',
             './.gitignore',
             './autotune-build',
