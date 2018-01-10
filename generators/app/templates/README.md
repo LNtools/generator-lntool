@@ -55,6 +55,13 @@ gulp sass
 ```
 
 
+### Compile html templates
+
+```bash
+gulp templates
+```
+
+
 ### Save json form array data
 
 ```bash
@@ -65,7 +72,7 @@ gulp array_to_obj --url=http://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5
 ```
 
 
-### Publish on Github pages
+### Run tests
 
 ```bash
 npm run test

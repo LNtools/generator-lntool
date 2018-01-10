@@ -5,25 +5,12 @@ const gzip = require('gulp-gzip');
 const fs = require('fs');
 const path = require('path');
 const opn = require('opn');
-
-const credentialsPath = './s3Credentials.json';
-const pathProduction = "http://especialess3.lanacion.com.ar/";
+const gulp_opts = require('../gulp_opts');
 
 gulp.task('deploy', function () {
 
-    try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        console.warn("Intente ejecutar: $gulp make_manifest");
-        // var manifest = {};
-        // manifest.conf = {};
-        return false;
-    }
-
-
     var options = {
-            uploadPath: manifest.conf.uploadPath
+            uploadPath: gulp_opts.conf.uploadPath
             // headers: {
             // //     // 'Cache-Control': 'max-age=1, no-transform, public',
             //     // 'Vary': 'Accept-Encoding'
@@ -31,21 +18,20 @@ gulp.task('deploy', function () {
 
         }
 
-    if (fs.existsSync(credentialsPath) && manifest) {
+    if (fs.existsSync(gulp_opts.conf.credentialsPath)) {
+        var s3Credentials = JSON.parse(fs.readFileSync(gulp_opts.conf.credentialsPath));
 
-        var s3Credentials = JSON.parse(fs.readFileSync(credentialsPath));
 
-        gulp.src('**', { cwd: manifest.conf.dest })
+        gulp.src('**', { cwd: gulp_opts.conf.dest })
             .pipe(s3(s3Credentials, options))
             .on('end', function(e){
-                let urlProductionApp = path.join(pathProduction, options.uploadPath);
-                console.log( "Deploy complete on: \n" +  urlProductionApp);
-                opn(urlProductionApp);
+                console.log( "Deploy complete on: \n" +  gulp_opts.conf.absolutePath);
+                opn(gulp_opts.conf.absolutePath);
             });
     }
     else{
 
-        console.log( "El archivo "+ credentialsPath + " no existe, renombre s3Creentials.json.tmpl y vuelva a intentar");
+        console.log( "El archivo "+ gulp_opts.conf.credentialsPath + " no existe, renombre s3Creentials.json.tmpl y vuelva a intentar");
     }
 
 });

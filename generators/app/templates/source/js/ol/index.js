@@ -39,12 +39,6 @@ module.exports.init = function () {
 /** ini PYM*/
 module.exports.pymChild = new pym.Child();
 
-/** loder mothods */
-module.exports.loader = {
-    show: () => { $("#loader").fadeIn(); },
-    hide: () => { $("#loader").fadeOut("slow"); }
-};
-
 /** check if is an iframe */
 module.exports.is_iframe = function(){
     return window === window.top;

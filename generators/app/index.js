@@ -119,6 +119,7 @@ module.exports = generators.extend({
           name: this.pkg.name,
           version: this.pkg.version,
           appname: this.features.appname,
+          description: this.features.description,
           slug: this.features.appname.toLowerCase().replace(/\s/g, "-").replace(/[\.\!\¿\¡\?]/g, ""),
         }
 
@@ -191,15 +192,15 @@ module.exports = generators.extend({
 
     },
 
-    html: function () {
-      var bsPath, bsPlugins;
+    // html: function () {
+    //   var bsPath, bsPlugins;
 
-      // path prefix for Bootstrap JS files
-      this.features.vendor_links = vendor_links;
-      this.fs.copyTpl(
-        this.templatePath('source/index.html'),
-        this.destinationPath('source/index.html'), this.features  );
-    },
+    //   // path prefix for Bootstrap JS files
+    //   this.features.vendor_links = vendor_links;
+    //   this.fs.copyTpl(
+    //     this.templatePath('source/index.html'),
+    //     this.destinationPath('source/index.html'), this.features  );
+    // },
 
     bower: function () {
       var bowerJson = {
@@ -281,9 +282,15 @@ module.exports = generators.extend({
     },
 
     templates: function () {
-      this.fs.copy(
-        this.templatePath('source/templates/**/*'),
-        this.destinationPath('source/templates/')
+      let d = new Date();
+      let created = `${d.toISOString().slice(0,10)} 00:00:00` 
+      this.features.created = created;
+      this.features.vendor_links = vendor_links;
+      this.fs.copyTpl(
+
+        this.templatePath('source/views/**/*'),
+        this.destinationPath('source/views/'),
+        this.features
       );
     },
 
