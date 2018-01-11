@@ -82,18 +82,4 @@ gulp.task('data', function () {
         // .pipe(gulp.dest(manifest.conf.dest+"preview/"+'data'));
 });
 
-
-gulp.task('templates', function () {
-    try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        var manifest = {};
-        manifest.conf = {};
-    }
-
-    var templates = gulp.src('templates/*', { cwd: manifest.conf.app_cwd })
-        .pipe(gulp.dest(manifest.conf.dest+'templates'));
-});
-
-gulp.task('copy', ['html', 'copy_assets', 'data', 'templates']);
+gulp.task('copy', ['html', 'copy_assets', 'data']);

@@ -12,26 +12,20 @@ var opts = {
 
 
 gulp.task('templates', function() {
-	try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        var manifest = {};
-        manifest.conf = {};
-    }
-
-    // var opts = {
-    //     conditionals: true,
-    //     spare:true
-    // };
+  var manifest;
+	try {
+    manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+  } catch(e){
+    console.warn("No se encontro el manifiest.json");
+    manifest = {};
+    manifest.conf = {};
+  }
 
   gulp.src('views/*.html', { cwd: conf.app_cwd })
     .pipe(swig(opts))
-	.pipe(htmlreplace({
-		js: ['js/'+manifest.js_all],
-		css: ['css/'+manifest.css_file_min]
-	}))
-    // .
-    // .pipe(gulp.dest(conf.app_cwd))
-    .pipe(gulp.dest(conf.dest))
+    .pipe(htmlreplace({
+      js: ['js/'+manifest.js_all],
+      css: ['css/'+manifest.css_file_min]
+    }))
+    .pipe(gulp.dest(conf.dest));
 });
