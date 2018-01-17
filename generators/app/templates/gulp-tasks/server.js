@@ -14,7 +14,7 @@ function getPathApp(_path){
 gulp.task('browser-sync', ['build'], function () {
 
 
-    // for more browser-sync config options: http://www.browsersync.io/docs/options/
+    // for more browser-sync config options: https://www.browsersync.io/docs/options/
     browserSync.init({
 
         port: 8080,
