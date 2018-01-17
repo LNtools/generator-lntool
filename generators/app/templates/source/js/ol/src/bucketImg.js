@@ -12,6 +12,9 @@ module.exports = function (_src, _w){
     var isBucket = patBucket.test(_src);
 
     _src = isBucket ? _src.replace(patReplacer, w+"\.$1") : _src;
+    if(!!_src) {
+      _src = _src.replace('http:', 'https:');
+    }
 
     return _src;
 };
