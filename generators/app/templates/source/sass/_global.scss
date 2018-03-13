@@ -70,7 +70,7 @@ h5, h4{
 }
 
 .container{
-    max-width: 960px; margin: 0 auto;
+    max-width: 1280px; margin: 0 auto;
 }
 
 
@@ -93,18 +93,24 @@ a:hover{
 
 
 footer{
+    width:99%;
     border-top:1px solid #dadada;
     padding: 5px 0;
-    margin: 10px 0;
-}
+    margin: 10px auto;
 
-footer p{
-    color:#999;
-    font-size: 11px;
-    font: normal 12px/24px "Arial", Helvetica, sans-serif;
-    margin: 8px 0;
-}
+    p, .link-copyright{
+        color:#999;
+        font-size: 11px;
+        font: normal 12px/24px "Arial", Helvetica, sans-serif;
+        margin: 8px 0;
+    }
 
+    .link-copyright{
+        float:right;
+        margin-top:0px;
+    }
+
+}
 
 /* BUTTONS */
 button.btn{
@@ -212,7 +218,7 @@ div.modal div.txts {
         margin-left: -160px;
     }
     @media (max-width: 350px){
-        width: 2550px;
+        width: 250px;
         left: 50%;
         margin-left: -144px;
     }
