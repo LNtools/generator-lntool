@@ -20,6 +20,6 @@ Template de estilos de UI para cargar en los especiales de lanacion.com
 
 #### Para agregar Iconos a la font **Especiales**
 
-Ir a [Fontastic](http://app.fontastic.me/)
+Ir a [Fontastic](https://app.fontastic.me/)
 
 Consultar pasword a OLcreativa@lanacion.com.ar
