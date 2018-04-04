@@ -57,7 +57,7 @@
     "version-patch": "gulp patch",
     "version-feature": "gulp feature",
     "version-release": "gulp release",
-    "publish": "git push origin master --tags && npm publish"
+    "publish-git-tags": "git push origin master --tags"
   },
   "license": "MIT"
 }
