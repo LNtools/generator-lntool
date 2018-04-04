@@ -22,8 +22,8 @@ var conf = {
 	
 	meta_data: { // data para para los templates
 		title: "<%= appname %>",
-		url_esp: absolutePath,
-		url_img_esp: path.join(absolutePath, "/img/social.png"),
+    url_esp: ':/' + absolutePath,
+    url_img_esp: path.join(':/' + absolutePath, "/img/social.png"),
 		social_txt: "<%= description %>",
 		dateModified: `${date.toISOString().slice(0,10)} ${date.getHours()}:${date.getMinutes()}:00`
 
