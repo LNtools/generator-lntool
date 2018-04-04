@@ -56,7 +56,8 @@
     "postversion": "git push && git push --tags && rm -rf build/temp",
     "version-patch": "gulp patch",
     "version-feature": "gulp-feature",
-    "version-release": "gulp release"
+    "version-release": "gulp release",
+    "publish": "git push origin master --tags && npm publish"
   },
   "license": "MIT"
 }
