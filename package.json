@@ -1,6 +1,6 @@
 {
   "name": "generator-lntool",
-  "version": "0.7.2",
+  "version": "1.0.0",
   "description": "LNtool template generator ",
   "homepage": "https://github.com/LNtools/generator-lntool",
   "author": {
