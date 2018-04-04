@@ -6,38 +6,29 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
-
+var gulp_opts = require('../gulp_opts');
 
 var fs = require('fs');
 
 gulp.task('build_js', function(callback) {
 
-    try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        var manifest = {};
-        manifest.conf = {};
-    }
+    let isDev = process.env.NODE_ENV=="development";
 
+    var jsbuild = gulp_opts.conf.app_cwd+'jsbuild';
 
-    var jsbuild = manifest.conf.app_cwd+'jsbuild';
-
-    var bundler =
-                browserify(manifest.conf.app_cwd+'js/main.js', { debug: true })
-                .transform("babelify",
-                    {global: true, presets: ["es2015"]});
+    var bundler = browserify(gulp_opts.conf.app_cwd+'js/main.js', { debug: isDev })
+                .transform("babelify");
 
     bundler
         .bundle()
         .on('end', function(err) {  callback(); })
         .on('error', function(err) { console.error(err); this.emit('end'); })
-        .pipe(source(manifest.js_all))
+        .pipe(source(gulp_opts.js_all))
         .pipe(buffer())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(manifest.conf.dest+ "js"))
+        // .pipe(sourcemaps.init({ loadMaps: true }))
+        // .pipe(uglify())
+        // .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(gulp_opts.conf.dest+ "js"))
         .emit('end');
 
 });

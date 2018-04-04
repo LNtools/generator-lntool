@@ -2,11 +2,14 @@
 const path = require('path');
 
 /** global configs */
-const credentialsPath = './s3Credentials.json';
-const urlProduction = "://especialess3.lanacion.com.ar/";
-const uploadPath = '/<%= year %>/<%= month %>/<%= slug %>';
+const urlProduction = "https://especialess3.lanacion.com.ar/";
+const uploadPath = '/<%= year %>/<%= month %>/<%= slug %>/';
 const absolutePath = path.join(urlProduction, uploadPath);
 const date = new Date();
+
+if(uploadPath[uploadPath.length - 1] !== "/" ){
+	uploadPath += "/";
+}
 
 var conf = {
     app_cwd:'source/',
@@ -15,9 +18,8 @@ var conf = {
     autotuneJson:'source/data/autotune.json',
     commit: Math.floor(Date.now() / 1000),
 	urlProduction: urlProduction,
-    credentialsPath: credentialsPath,
-    uploadPath: uploadPath,
 	absolutePath: absolutePath,
+	
 	meta_data: { // data para para los templates
 		title: "<%= appname %>",
 		url_esp: absolutePath,
@@ -25,7 +27,14 @@ var conf = {
 		social_txt: "<%= description %>",
 		dateModified: `${date.toISOString().slice(0,10)} ${date.getHours()}:${date.getMinutes()}:00`
 
-    }
+    },
+
+	deploy: {
+    	uploadPath: uploadPath,
+    	credentialsPath: './s3Credentials.json',
+		pathProduction : urlProduction
+	}
+
 
 };
 

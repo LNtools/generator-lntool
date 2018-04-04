@@ -6,8 +6,8 @@
 
     {% include "_analytics.html" %}
     
-    <link rel="stylesheet" type="text/css" href="http://especiales.lanacion.com.ar/multimedia/proyectos/fonts/font.css">
-    <link rel="stylesheet" type="text/css" href="http://static.lanacion.com.ar/desarrollo/v1/common/css/icono.css">
+    <link rel="stylesheet" type="text/css" href="https://especiales.lanacion.com.ar/multimedia/proyectos/fonts/font.css">
+    <link rel="stylesheet" type="text/css" href="https://static.lanacion.com.ar/desarrollo/v1/common/css/icono.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css">
     <!-- build:css -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -37,7 +37,7 @@
                 
                 <a class="icon-facebook-square" title="Compartilo en Facebook" href="'https://www.facebook.com/sharer/sharer.php?u=__URL__'" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
 
-                <a class="icon-twitter" title="Compartilo en Twitter" href="'http://twitter.com/?status='+ encodeURIComponent((quote.quote_txt.length > 110 ? quote.quote_txt.slice(0, 110)+'... ' : quote.quote_txt+' ') + urlShare)" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+                <a class="icon-twitter" title="Compartilo en Twitter" href="'https://twitter.com/?status='+ encodeURIComponent((quote.quote_txt.length > 110 ? quote.quote_txt.slice(0, 110)+'... ' : quote.quote_txt+' ') + urlShare)" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
             </div>
         </header>
 
@@ -51,7 +51,7 @@
 
     </div>
     <footer>
-        <a href="./templates/credits.html" class="btn_light ajax_modal" id="creditos">Créditos</a>
+        <a href="#" class="btn_light ajax_modal" data-modal="#creditos-modal">Créditos</a>
         <a href="./templates/metod.html" class="btn_light ajax_modal" id="metodologia">Metodología</a>
         <div class="link-copyright">Copyright 2017 - SA LA NACION | Todos los derechos reservados</div>
     </footer>
