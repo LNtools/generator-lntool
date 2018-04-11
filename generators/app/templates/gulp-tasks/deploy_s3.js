@@ -10,7 +10,8 @@ const gulp_opts = require('../gulp_opts');
 gulp.task('deploy', function () {
 
     var options = {
-            uploadPath: gulp_opts.conf.uploadPath
+            uploadPath: gulp_opts.conf.deploy.uploadPath,
+            // maxRetries: 5
             // headers: {
             // //     // 'Cache-Control': 'max-age=1, no-transform, public',
             //     // 'Vary': 'Accept-Encoding'
@@ -18,8 +19,8 @@ gulp.task('deploy', function () {
 
         }
 
-    if (fs.existsSync(gulp_opts.conf.credentialsPath)) {
-        var s3Credentials = JSON.parse(fs.readFileSync(gulp_opts.conf.credentialsPath));
+    if (fs.existsSync(gulp_opts.conf.deploy.credentialsPath)) {
+        var s3Credentials = JSON.parse(fs.readFileSync(gulp_opts.conf.deploy.credentialsPath));
 
 
         gulp.src('**', { cwd: gulp_opts.conf.dest })

@@ -37,7 +37,7 @@ gulp.task('build', ['make_manifest'], function(cb) { // build para Especiales
 
     runSequence(
         'clean_build',
-        ['build_js', 'sass', 'js_vendor'],
+        ['build_js', 'sass'],
         ['copy', 'templates'],
         function(){
             console.log("El Build de la aplicación se creó en  ----> %s <---- ok!", conf.dest);

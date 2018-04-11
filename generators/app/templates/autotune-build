@@ -1,18 +1,38 @@
 #!/bin/bash
 
 # UPDATE_BOWER_COMMAND="bower install"
-BUILD_COMMAND="gulp build-autotune"
-# INPUT_DATA='{}'
-INPUT_DATA=$(</dev/stdin)
-# SAVE_DATA_TO="build/data/autotune.json"
-SAVE_DATA_TO="source/data/autotune.json"
+BUILD_REMOVE="rm build -rf"
+BUILD_COMMAND="gulp build"
+BUILD_RENAME_TMP="mv build tmp"
+TMP_BUILD="cp ./tmp build -rf"
+TMP_PREVIEW="cp ./tmp build/preview -rf"
+TMP_REMOVE="rm ./tmp -rf"
 
+
+SAVE_DATA_TO="build/data/autotune.json"
+# INPUT_DATA=$(</dev/stdin)
+SAVE_DATA_TO="source/data/autotune.json"
 echo "Saving autotune data to $SAVE_DATA_TO"
 mkdir -p `dirname $SAVE_DATA_TO`
 echo "$INPUT_DATA" > $SAVE_DATA_TO
 
-# echo "Udate Bower"
-# $UPDATE_BOWER_COMMAND
 
-echo "Build command"
+
+echo "Remove Build folder"
+$BUILD_REMOVE
+
+echo "Run gulp build command"
 $BUILD_COMMAND
+
+
+echo "Move build folder to tmp"
+$BUILD_RENAME_TMP
+
+echo "Creating build folder"
+$TMP_BUILD
+
+echo "Creating build/Preview folder"
+$TMP_PREVIEW
+
+echo "Removing tmp folder"
+$TMP_REMOVE
