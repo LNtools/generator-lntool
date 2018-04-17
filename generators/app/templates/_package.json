@@ -7,9 +7,9 @@
     "scripts": {
         "test": "mocha tests/**/*.js",
         "publish_gh_pages": "gulp build && gulp deploy-gh-page",
-        "build": "BABEL_ENV=production NODE_ENV=production gulp build",
+        "build": "cross-env BABEL_ENV=production NODE_ENV=production gulp build",
         "nota-ln": "gulp nota-ln",
-        "start": "NODE_ENV=development gulp",
+        "start": "cross-env NODE_ENV=development gulp",
         "deploy": "gulp deploy",
         "pro": "http-server build/ -o -p 9000"
         
@@ -40,6 +40,7 @@
         "browser-sync": "^2.23.3",
         "browserify": "^14.3.0",
         "browserify-shim": "^3.8.14",
+        "cross-env": "^5.1.4",
         "gulp": "^3.9.1",
         "gulp-bro": "^1.0.3",
         "gulp-browserify": "^0.5.1",

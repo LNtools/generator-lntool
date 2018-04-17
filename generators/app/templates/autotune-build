@@ -2,7 +2,7 @@
 
 # UPDATE_BOWER_COMMAND="bower install"
 BUILD_REMOVE="rm build -rf"
-BUILD_COMMAND="gulp build"
+BUILD_COMMAND="npm run build"
 BUILD_RENAME_TMP="mv build tmp"
 TMP_BUILD="cp ./tmp build -rf"
 TMP_PREVIEW="cp ./tmp build/preview -rf"
