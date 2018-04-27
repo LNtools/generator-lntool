@@ -251,11 +251,15 @@ button.btn.active:hover {
     line-height: 1.2;
     border: 1px solid #fff;
     cursor: pointer;
+    width:30px;
+    height:30px;
+    padding:0;
+    background-image:url("../img/cerrar.svg");
+    background-size: 53%;
+    background-repeat: no-repeat;
+    background-position:center;
 }
 
-.cerrar_creditos:hover {
-    color: #fff;
-}
 
 
 /*//////////// modal creditos /////////////////*/
