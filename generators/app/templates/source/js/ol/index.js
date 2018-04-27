@@ -31,7 +31,7 @@ module.exports.init = function () {
     // };
 
     /** init handle ctos modal btns */
-    this.btns_ajax_modal ();
+    this.modal_init();
 
     return this;
 };
@@ -55,23 +55,21 @@ module.exports.onResizedw = function () { // on resize stop event
 
 };
 
-/** load modal from ".ajax_modal" btn */
-module.exports.btns_ajax_modal = function (){
-  $(".ajax_modal").on("click", function(){
-    var $append = $("#append");
-    $append.hide();
-    $append.load(this.href, function(){
-      $append.fadeIn();
+/**  handle modal */
+module.exports.modal_init = function (){
+  
+    $("[data-modal]").on("click", function(){
 
-      // when modal is closed cleaner append div
-      $(".modal, .cerrarconsolereditos", $append).on("click", function(){
-        $append.fadeOut("fast", function(){ $append.html(""); });
+        let $modal = $(this.dataset.modal);
+        $modal.fadeIn();
+
+        $modal.one("click", function(){
+            $modal.fadeOut("fast");
+            return false;
+        });
+
         return false;
-      });
     });
-
-    return false;
-  });
 };
 
 module.exports.mobilecheck = function() {

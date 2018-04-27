@@ -5,10 +5,10 @@ var request = require('request');
 
 
 /**
-* sample: `$ gulp array_to_obj --url=http://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0`
+* sample: `$ gulp array_to_obj --url=https://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0`
 */
 gulp.task('array_to_obj', function(cb) { // build para Especiales
-    var NESTED_ARRAY_URL = 'http://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0';
+    var NESTED_ARRAY_URL = 'https://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0';
     var pat = /^\-\-url\=(.+)$/i;
 
     var url = process.argv.filter(function(d){

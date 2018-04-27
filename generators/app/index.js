@@ -177,6 +177,12 @@ module.exports = generators.extend({
         this.templatePath('README.md'),
         this.destinationPath('README.md'), this.features);
     },
+    babelrc: function () {
+      this.fs.copy(
+        this.templatePath('babelrc'),
+        this.destinationPath('.babelrc'));
+
+    },
 
     autotune: function () {
 

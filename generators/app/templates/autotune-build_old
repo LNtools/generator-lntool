@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# UPDATE_BOWER_COMMAND="bower install"
+BUILD_COMMAND="gulp build-autotune"
+# INPUT_DATA='{}'
+INPUT_DATA=$(</dev/stdin)
+# SAVE_DATA_TO="build/data/autotune.json"
+SAVE_DATA_TO="source/data/autotune.json"
+
+echo "Saving autotune data to $SAVE_DATA_TO"
+mkdir -p `dirname $SAVE_DATA_TO`
+echo "$INPUT_DATA" > $SAVE_DATA_TO
+
+# echo "Udate Bower"
+# $UPDATE_BOWER_COMMAND
+
+echo "Build command"
+$BUILD_COMMAND

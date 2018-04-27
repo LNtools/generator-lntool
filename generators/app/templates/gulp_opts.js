@@ -2,17 +2,13 @@
 const path = require('path');
 
 /** global configs */
-const credentialsPath = './s3Credentials.json';
-const urlProduction = "especialess3.lanacion.com.ar/";
-const uploadPath = '/<%= year %>/<%= month %>/<%= slug %>';
+const urlProduction = "https://especialess3.lanacion.com.ar/";
+const uploadPath = '/<%= year %>/<%= month %>/<%= slug %>/';
 const absolutePath = path.join(urlProduction, uploadPath);
 const date = new Date();
 
-var basePath;
-if(process.argv.indexOf('deploy') > -1) {
-  basePath = absolutePath;
-} else { 
-  basePath = '.';
+if(uploadPath[uploadPath.length - 1] !== "/" ){
+	uploadPath += "/";
 }
 
 var conf = {
@@ -22,17 +18,23 @@ var conf = {
     autotuneJson:'source/data/autotune.json',
     commit: Math.floor(Date.now() / 1000),
 	urlProduction: urlProduction,
-    credentialsPath: credentialsPath,
-    uploadPath: uploadPath,
 	absolutePath: absolutePath,
+	
 	meta_data: { // data para para los templates
 		title: "<%= appname %>",
-    url_esp: ':/' + absolutePath,
-    url_img_esp: path.join(':/' + absolutePath, "/img/social.png"),
+    url_esp: absolutePath,
+    url_img_esp: path.join(absolutePath, "/img/social.png"),
 		social_txt: "<%= description %>",
 		dateModified: `${date.toISOString().slice(0,10)} ${date.getHours()}:${date.getMinutes()}:00`
 
-    }
+    },
+
+	deploy: {
+    	uploadPath: uploadPath,
+    	credentialsPath: './s3Credentials.json',
+		pathProduction : urlProduction
+	}
+
 
 };
 
