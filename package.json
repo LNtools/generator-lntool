@@ -50,7 +50,6 @@
   },
   "repository": "LNtools/generator-lntool",
   "scripts": {
-    "prepublish": "gulp prepublish",
     "test": "gulp",
     "preversion": "npm test",
     "postversion": "git push && git push --tags && rm -rf build/temp",
