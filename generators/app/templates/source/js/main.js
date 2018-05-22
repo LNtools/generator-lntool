@@ -1,9 +1,8 @@
-// // import Promise from 'promise-polyfill';
-
-// // To add to window
-// if (!window.Promise) {
-//   window.Promise = Promise;
-// }
+/** Este path es reemplazado por la url absoluta del proyecto en S3
+* NO-TOCAR
+*/
+window.PATH_APP = "";
+/** NO-TOCAR-END */
 
 
 $(function () {
@@ -52,3 +51,11 @@ Number.prototype.format = function(c, d, t){
     var nn = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
     return nn;
 };
+
+/** FIX PROMISE CROSSBROWSER */
+// // import Promise from 'promise-polyfill';
+
+// // To add to window
+// if (!window.Promise) {
+//   window.Promise = Promise;
+// }

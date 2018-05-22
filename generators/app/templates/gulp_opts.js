@@ -4,8 +4,9 @@ const path = require('path');
 /** global configs */
 const urlProduction = "https://especialess3.lanacion.com.ar/";
 const uploadPath = '/<%= year %>/<%= month %>/<%= slug %>/';
-const absolutePath = path.join(urlProduction, uploadPath);
 const date = new Date();
+const absolutePath = path.join(urlProduction, uploadPath)
+                        .replace(/\\/g, "/").replace("https:/e", "https://e"); // fix windows path;
 
 if(uploadPath[uploadPath.length - 1] !== "/" ){
 	uploadPath += "/";
