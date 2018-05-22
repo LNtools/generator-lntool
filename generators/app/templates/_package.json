@@ -8,7 +8,7 @@
         "test": "mocha tests/**/*.js",
         "publish_gh_pages": "gulp build && gulp deploy-gh-page",
         "build": "cross-env BABEL_ENV=production NODE_ENV=production gulp build",
-        "nota-ln": "NOTA_ENV=nota-ln npm run build && gulp nota-ln && echo '*  Se creó el build y la nota. \n** Falta hacer deploy y publicar la nota.'",
+        "nota-ln": "cross-env NOTA_ENV=nota-ln npm run build && gulp nota-ln && echo '*  Se creó el build y la nota. \n** Falta hacer deploy y publicar la nota.'",
         "start": "cross-env NODE_ENV=development gulp",
         "deploy": "gulp deploy",
         "pro": "http-server build/ -o -p 9000",

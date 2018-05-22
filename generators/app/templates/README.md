@@ -13,6 +13,17 @@
 
 ## Commands: 
 
+
+## Deploy APP
+
+```bash
+npm run nota-ln
+gulp deploy
+# Copiar el archivo nota-ln/index.html en la nota de HTML libre del publicador
+```
+
+
+
 ### Install dependences
 
 ```bash
