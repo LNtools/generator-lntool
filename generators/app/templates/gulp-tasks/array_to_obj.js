@@ -1,6 +1,6 @@
-var gulp = require('gulp');
-var file = require('gulp-file');
-var request = require('request');
+const gulp = require('gulp');
+const file = require('gulp-file');
+const request = require('request');
 
 
 
@@ -8,30 +8,30 @@ var request = require('request');
 * sample: `$ gulp array_to_obj --url=https://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0`
 */
 gulp.task('array_to_obj', function(cb) { // build para Especiales
-    var NESTED_ARRAY_URL = 'https://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0';
-    var pat = /^\-\-url\=(.+)$/i;
+    let NESTED_ARRAY_URL = 'https://olcreativa.lanacion.com.ar/dev/get_url/?key2=1ZA5BroFXGh_ZvlNHC8s-AHBNV7hiILxQdrClLx9Ob-A&gid=0';
+    let pat = /^\-\-url\=(.+)$/i;
 
-    var url = process.argv.filter(function(d){
+    let url = process.argv.filter(function(d){
         return d.match(pat);
     })[0];
 
     url = url ? url.match(pat)[1] : NESTED_ARRAY_URL;
 
 
-    var file = require('gulp-file');
-    var request = require('request');
+    let file = require('gulp-file');
+    let request = require('request');
 
 
     request(url, function (error, response, body) {
       console.log('body:', typeof body); // Print the HTML for the Google homepage.
 
-        var data = JSON.parse(body);
-        var header = data[0]
+        let data = JSON.parse(body);
+        let header = data[0]
         data = data.splice(1)
-        var data = data.map(function(d){
-            var o = {};
+        data = data.map(function(d){
+            let o = {};
 
-            for (var i = 0; i < d.length; i++){
+            for (let i = 0; i < d.length; i++){
 
                 o[header[i]] = d[i];
             }
