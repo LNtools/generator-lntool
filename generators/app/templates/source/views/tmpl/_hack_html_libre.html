@@ -1,0 +1,29 @@
+<!-- HACK html libre styles -->
+ <style>
+        body header#cabezal.desplegado.logueado .logueo .desplegable-usuario a.salir, 
+        body header#cabezal.desplegado.suscripto .logueo .desplegable-usuario a.salir,
+        body header#cabezal.desplegado.logueado .icon-menu-desktop:after, 
+        body header#cabezal.desplegado.suscripto .icon-menu-desktop:after{
+            color:#fff;
+        }
+
+        @media screen and (max-width: 767px){
+            body header .herramientas button{
+               background: #262626 !important;
+                color: #fff !important;
+                border: 1px solid #464646 !important; 
+            }
+        }
+</style>
+<script>
+        var header = document.getElementById("cabezal");
+        header.classList.add("transparente");
+        header.style.background = "#262626";
+        header.style.borderBottom = "1px solid #727272";
+
+        var nota = document.getElementById("item-nota");
+        nota.style.maxWidth = "100%";
+        nota.style.marginTop = "50px";
+        nota.style.padding = "0px";
+</script>
+<!-- HACK html libre styles -->
