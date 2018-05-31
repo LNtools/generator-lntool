@@ -32,7 +32,11 @@
 
     ],
     "homepage": "",
-
+    "browserify": {
+            "transform": [
+                  "babelify"
+        ]
+      },
     "dependencies": {
 
     },
