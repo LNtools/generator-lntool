@@ -5,7 +5,7 @@ window.PATH_APP = "";
 /** NO-TOCAR-END */
 
 
-$(function () {
+window.onload = function() {
     /** Code! */
 
 
@@ -37,7 +37,7 @@ $(function () {
     //     console.info(_data);
     // }
 
-});
+};
 
 
 Number.prototype.format = function(c, d, t){
