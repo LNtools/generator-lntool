@@ -59,11 +59,10 @@ module.exports.onResizedw = function () { // on resize stop event
 module.exports.modal_init = function (){
   
     $("[data-modal]").on("click", function(){
-
-        let $modal = $(this.dataset.modal);
+        let $modal = $(".modal");
         $modal.fadeIn();
 
-        $modal.one("click", function(){
+        $(".cerrar_creditos").on("click", function(){
             $modal.fadeOut("fast");
             return false;
         });

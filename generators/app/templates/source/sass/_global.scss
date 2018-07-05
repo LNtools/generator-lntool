@@ -115,13 +115,6 @@ h4 {
 }
 
 
-.bajada {
-    font: normal 14px/20px 'TheSans', 'Arial', Helvetica, sans-serif;
-    color: #666;
-    margin: 0 0 5px 0;
-    ;
-}
-
 a,
 a:visited {
     color: #0084B4;
@@ -251,14 +244,29 @@ button.btn.active:hover {
     line-height: 1.2;
     border: 1px solid #fff;
     cursor: pointer;
-    width:30px;
-    height:30px;
-    padding:0;
-    background-image:url("../img/cerrar.svg");
-    background-size: 53%;
-    background-repeat: no-repeat;
-    background-position:center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    &:after, &:before  {
+        content: '';
+        width: 16px;
+        height: 1px;
+        background-color: #fff;
+        top: 15px;
+        left: 7px;
+        z-index: 1000;
+        position: absolute;
+        display: block;
+        border-radius: 2px;
+        transform: rotate(45deg);
+    }
+
+    &:before {
+        transform: rotate(-45deg);
+    }
 }
+
 
 
 
@@ -336,29 +344,3 @@ div.modal div.txts div.nombre a:hover {
 
 
 
-
-
-/*----- font icons ----*/
-
-
-/*----- font icons ----*/
-
-@font-face {
-    font-family: "especiales";
-    src: url("icons/especiales.eot");
-    src: url("icons/especiales.eot?#iefix") format("embedded-opentype"),
-    url("icons/especiales.woff") format("woff"),
-    url("icons/especiales.ttf") format("truetype"),
-    url("icons/especiales.svg") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-div.nav.icon-flecha-menos:before {
-    content: "a";
-}
-
-div.nav.icon-flecha-mas:before {
-    content: "s";
-}
