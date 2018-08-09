@@ -44,4 +44,4 @@ let loader= {
 
 };
 
-module.exports = loader;
+export default loader;

@@ -4,6 +4,18 @@
 
 
 {% block body %}
+
+<header>
+    <h1><%= appname %></h1>
+    <h2><%= description %></h2>
+    <div hidden class="social">
+        
+        <a class="icon-facebook-square" title="Compartilo en Facebook" href="'https://www.facebook.com/sharer/sharer.php?u=__URL__'" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+
+        <a class="icon-twitter" title="Compartilo en Twitter" href="'https://twitter.com/?status='+ encodeURIComponent((quote.quote_txt.length > 110 ? quote.quote_txt.slice(0, 110)+'... ' : quote.quote_txt+' ') + urlShare)" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+    </div>
+</header>
+
 {% raw %}
 		
 	<h1>APP CONTENT!</h1>

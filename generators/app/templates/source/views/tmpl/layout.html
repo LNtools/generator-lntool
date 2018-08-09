@@ -29,18 +29,7 @@
         <div class="preload"><div id="logoln"><svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="41px" height="49px" viewBox="290.139 372.445 41 49" enable-background="new 290.139 372.445 41 49" xml:space="preserve"> <g> <g> <path fill="#006998" d="M326.779,393.904v-0.891h-4.801v0.891h0.346c0.966,0,1.49,0.344,1.49,1.05v5.732h0.192l-6.191-7.674 h-5.612v0.891h0.094c0.734,0,1.478,0.573,1.478,1.454v8.425c0,1.125-0.632,1.325-1.31,1.325h-0.005h-0.321v0.889l4.836,0.017 l-0.051-0.905h-0.14c-1.218,0-1.701-0.176-1.701-1.227v-8.34h-0.188l8.404,10.455h1.837v-11.101c0-0.463,0.413-0.993,1.397-0.993 L326.779,393.904L326.779,393.904z M299.457,405.997h11.641v-5.162h-0.962v0.555c0,2.952-2.037,3.719-4.59,3.719h-0.457v-11.205 h2.139v-0.891h-7.77v0.891h1.938v11.205h-1.938L299.457,405.997L299.457,405.997z"/> </g> </g></svg> </div><canvas id="spinner"></canvas></div>
         <!-- END NUEVO PRELOAD -->
 
-        <!-- end LN landing -->
-        
-        <header>
-            <h1><%= appname %></h1>
-            <h2><%= description %></h2>
-            <div hidden class="social">
-                
-                <a class="icon-facebook-square" title="Compartilo en Facebook" href="'https://www.facebook.com/sharer/sharer.php?u=__URL__'" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
 
-                <a class="icon-twitter" title="Compartilo en Twitter" href="'https://twitter.com/?status='+ encodeURIComponent((quote.quote_txt.length > 110 ? quote.quote_txt.slice(0, 110)+'... ' : quote.quote_txt+' ') + urlShare)" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
-            </div>
-        </header>
 
 
         {% block body %}

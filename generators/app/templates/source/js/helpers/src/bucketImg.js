@@ -5,11 +5,12 @@
 * @param {string} _w - width img
 *
 */
-module.exports = function (_src, _w){
-    var w = _w ? "w"+_w : "";
-    var patBucket = /bucket[0-9]?\.glanacion(.+)?\.(jpg|png)/;
-    var patReplacer = /\.(jpg|png)/;
-    var isBucket = patBucket.test(_src);
+export default function (_src, _w){
+
+    let w = _w ? "w"+_w : "";
+    let patBucket = /bucket[0-9]?\.glanacion(.+)?\.(jpg|png)/;
+    let patReplacer = /\.(jpg|png)/;
+    let isBucket = patBucket.test(_src);
 
     _src = isBucket ? _src.replace(patReplacer, w+"\.$1") : _src;
     if(!!_src) {
