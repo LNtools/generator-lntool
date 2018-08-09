@@ -1,6 +1,5 @@
-
 let loader= {
-  $loader: $(".preload"),
+  $loader: document.getElementById("preload"),
   interval: null,
   anima: function () { 
       let canvas = document.getElementById('spinner');
@@ -31,15 +30,19 @@ let loader= {
 	};
 
 	this.interval = window.setInterval(draw, 1000 / 30);
-	this.show();
+	// this.show();
   
   },
   
-  show: function() { this.$loader.removeClass("off").fadeIn(); },
+ /* show: function() { 
+  	//this.$loader.removeClass("off").fadeIn(); 
+  	this.$loader.classList.remove('off');
+  },*/
   
   hide: function() { 
 	clearInterval(this.interval);
-  	this.$loader.addClass("off").fadeOut("slow"); 
+  	this.$loader.remove();
+
   }
 
 };

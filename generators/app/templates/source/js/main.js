@@ -4,8 +4,6 @@
 window.PATH_APP = "";
 /** NO-TOCAR-END */
 
-
-
 window.onload= function () {
     console.log("Atart app");
 
@@ -22,6 +20,7 @@ window.onload= function () {
 
 // pymChild = new pym.Child();
 // pymChild.sendHeight(); 
+
 
 /** FIX PROMISE CROSSBROWSER */
 // // import Promise from 'promise-polyfill';
