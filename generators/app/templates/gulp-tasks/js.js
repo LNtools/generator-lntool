@@ -8,7 +8,7 @@ const gulpif = require('gulp-if');
 const jshint = require('gulp-jshint');
 const lazypipe = require('lazypipe');
 const replace = require('gulp-replace');
-const vueify = require('vueify');
+//const vueify = require('vueify');
 
 var gulp_opts = require('../gulp_opts');
 
@@ -39,6 +39,7 @@ gulp.task('build_js', () => {
         .pipe(bro({
             debug: isDev,
             transform: [
+                //vueify
                 // babelify.configure({ presets: ['es2015'] }),
                 // babelify.configure({ presets: ['env'] }),
                 babelify.configure({ }),
