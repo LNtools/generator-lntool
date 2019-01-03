@@ -36,6 +36,7 @@ gulp.task('build_js', ['lint'], () => {
         .pipe(bro({
             debug: isDev,
             transform: [
+                //vueify
                 // babelify.configure({ presets: ['es2015'] }),
                 // babelify.configure({ presets: ['env'] }),
                 babelify.configure({ }),

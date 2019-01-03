@@ -9,6 +9,7 @@ module.exports = {
     },
     "rules": {
         'quotes': ["warn", 'single'],
-        "semi": 2
+        "semi": 2,
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
     }
 }
