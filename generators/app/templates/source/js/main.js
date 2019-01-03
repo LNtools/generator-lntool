@@ -1,25 +1,25 @@
 /** Este path es reemplazado por la url absoluta del proyecto en S3
 * NO-TOCAR
 */
-window.PATH_APP = "";
+
+import {formatNumber} from './helpers';
+
+window.PATH_APP = '';
 /** NO-TOCAR-END */
 
 window.onload= function () {
-    console.log("Atart app");
-
-    
-
+    console.log('Atart app');
 
     /** resize app*/
-    var doit;
-    window.onresize = function(d) {
+    let doit;
+    window.onresize = function() {
       clearTimeout( doit );
-      doit = setTimeout( ()=>{ console.log("resize app"); }, 200 );
+      doit = setTimeout( ()=>{ console.log('resize app'); }, 200 );
     };
-}
+};
 
 // pymChild = new pym.Child();
-// pymChild.sendHeight(); 
+// pymChild.sendHeight();
 
 
 /** FIX PROMISE CROSSBROWSER */

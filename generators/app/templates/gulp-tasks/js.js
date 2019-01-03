@@ -5,9 +5,8 @@ const uglify = require('gulp-uglify');
 const bro = require('gulp-bro');
 const rename = require("gulp-rename");
 const gulpif = require('gulp-if');
-const jshint = require('gulp-jshint');
-const lazypipe = require('lazypipe');
 const replace = require('gulp-replace');
+const eslint = require('gulp-eslint');
 
 var gulp_opts = require('../gulp_opts');
 
@@ -22,19 +21,18 @@ let regexImgBg = /window\.PATH_APP\=\"\"\;?/g;
 let URL_NACION =  gulp_opts.conf.absolutePath;
 
 
-var jshintChannel = lazypipe()
-    // adding a pipeline step
-    .pipe(jshint) // notice the stream function has not been called!
-    .pipe(jshint.reporter);
-    // adding a step with an argument
-    // .pipe(jshint.reporter, 'fail');
+gulp.task('lint', () => {
 
+    gulp.src(gulp_opts.conf.app_cwd+'js/**/*.js')
+        .pipe(eslint())
+        .pipe(eslint.format())
+        // .pipe(eslint.failAfterError())
+})
 
-
-gulp.task('build_js', () => {
+gulp.task('build_js', ['lint'], () => {
 
     gulp.src(gulp_opts.conf.app_cwd+'js/main.js')
-        .pipe(gulpif(isDev, jshintChannel())) // JS lint tas
+        // .pipe(gulpif(isDev, lint())) // JS lint tas
         .pipe(bro({
             debug: isDev,
             transform: [
@@ -46,8 +44,8 @@ gulp.task('build_js', () => {
         }))
         .pipe( gulpif(isPro, uglify()) )
         .pipe(rename(gulp_opts.js_all))
-        .pipe(gulpif(isNotaLn, 
-            
+        .pipe(gulpif(isNotaLn,
+
             replace(regexImg, (match) => { // get body content
                 console.log(`Reemplazando: ${match}`);
                 try{
@@ -56,10 +54,10 @@ gulp.task('build_js', () => {
                     return match;
                 }
             })
-            
+
         ))
-        .pipe(gulpif(isNotaLn, 
-            
+        .pipe(gulpif(isNotaLn,
+
             replace(regexImgBg, (match) => { // get body content
                 console.log(`Reemplazando: ${match}`);
                 try{
@@ -70,7 +68,7 @@ gulp.task('build_js', () => {
                     return match;
                 }
             })
-            
+
         ))
         .pipe(gulp.dest(gulp_opts.conf.dest+ "js"))
 

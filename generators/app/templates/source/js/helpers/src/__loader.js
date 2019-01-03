@@ -1,5 +1,5 @@
 let loader= {
-  $loader: document.getElementById("preload"),
+  $loader: document.getElementById('preload'),
   interval: null,
   anima: function () { 
       let canvas = document.getElementById('spinner');
@@ -22,7 +22,7 @@ let loader= {
 			context.moveTo(cW / 5, 0);
 			context.lineTo(cW / 4, 0);
 			context.lineWidth = cW / 90;
-			context.strokeStyle = "rgba(51, 85, 119," + i / lines + ")";
+			context.strokeStyle = 'rgba(51, 85, 119,' + i / lines + ')';
 			context.stroke();
 		}
   		

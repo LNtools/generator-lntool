@@ -5,9 +5,9 @@
 export default function (u){
   let r = {};
   if(u){
-    u = decodeURIComponent(u.replace(/\?|\#/g,"")).split(/\&/);
+    u = decodeURIComponent(u.replace(/\?|\#/g,'')).split(/\&/);
     u.forEach(function(c, i){
-      c = c.split("=");
+      c = c.split('=');
 
       let key = c[0].toLowerCase();
       let value = c[1];
@@ -16,7 +16,7 @@ export default function (u){
       }
 
       if ( key.match(/\[\]/g)){
-        key = key.replace(/\[\]/g, "");
+        key = key.replace(/\[\]/g, '');
 
         if(!r[key]){
             r[key] = [];

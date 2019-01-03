@@ -15,22 +15,46 @@ requireDir('./gulp-tasks');
 // gulp.task('default', ['express_app']);
 gulp.task('default', ['browser-sync']);
 
-gulp.task('build-autotune', ['build'], function(cb) { // build para LNTOOLS
+// gulp.task('build-autotune', ['build'], function(cb) { // build para LNTOOLS
 
-    var fs = require('fs');
-    try{
-        var manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
-    }catch(e){
-        console.warn("No se encontro el manifiest.json");
-        var manifest = {};
-        manifest.conf = {};
-    }
+//     return runSequence(
+//             'build',
+//             // ['gen_preview_autotune'],
+//             function () {
+//                 console.log("build-autotune is complete");
+//             }
+//         );
+// });
 
-     return gulp.src(["**/*"], { cwd: manifest.conf.dest })
-        .pipe(gulp.dest(manifest.conf.dest+"./preview"));
+
+gulp.task('gen_preview_autotune', function(cb) { // build para Especiales
+    let regexLocalScript = /<script[^>]*>(.*?)<\/script[^>]*>/ig;
+    let regexLocalLink = /<link[^>]*>/ig;
+    let assets_path = "../";
+
+    return gulp.src(["index.html", '**/*.json'], { cwd: conf.dest })
+
+        .pipe(replace(regexLocalScript, (match) => { // replace local scripts tags
+            try{
+                return match.replace(/src="((?!https?).+)"/, `src="${assets_path}$1"`)
+            }catch(e){
+                console.error(e);
+                return match;
+            }
+        }))
+
+        .pipe(replace(regexLocalLink, (match) => { // replace local link styles tags
+            try{
+                return match.replace(/href="((?!https?).+)"/, `href="${assets_path}$1"`)
+            }catch(e){
+                console.error(e);
+                return match;
+            }
+        }))
+
+        .pipe(gulp.dest(conf.dest+"./preview"));
 
 });
-
 
 
 gulp.task('build', ['make_manifest'], function(cb) { // build para Especiales
@@ -54,7 +78,7 @@ gulp.task("nota-ln", function(cb) {
     let regexBody = /[\s\S]*?<body.*?>([\s\S]*?)<\/body>[\s\S]*?<\/html>/i;
     let regexLocalScript = /<script[^>]*>(.*?)<\/script[^>]*>/ig;
     let regexLocalLink = /<link[^>]*>/ig;
-    
+
     return gulp.src(conf.dest+'**.html')
         .pipe(replace(regexBody, (match) => { // get body content
             try{
@@ -114,7 +138,7 @@ function inc(importance) {
         .pipe(gulp.dest('./'))
         // commit the changed version number
         .pipe(git.commit('bumps package version'))
- 
+
         // read only one file to get the version number
         .pipe(filter('package.json'))
         // **tag it in the repository**

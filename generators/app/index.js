@@ -247,10 +247,10 @@ module.exports = generators.extend({
     // },
 
     jshintrcConf: function(){
-        var jshintrcConf  = {
-            "esversion": 6
-        };
-        this.fs.writeJSON('.jshintrc', jshintrcConf);
+      this.fs.copy(
+        this.templatePath('eslintrc.js'),
+        this.destinationPath('.eslintrc.js')
+      );
     },
 
     editorConfig: function () {
@@ -289,7 +289,7 @@ module.exports = generators.extend({
 
     templates: function () {
       let d = new Date();
-      let created = `${d.toISOString().slice(0,10)} 00:00:00` 
+      let created = `${d.toISOString().slice(0,10)} 00:00:00`
       this.features.created = created;
       this.features.vendor_links = vendor_links;
       this.fs.copyTpl(
