@@ -8,14 +8,14 @@ window.PATH_APP = '';
 /** NO-TOCAR-END */
 
 window.onload= function () {
-    console.log('Atart app');
+  console.log('Atart app');
 
-    /** resize app*/
-    let doit;
-    window.onresize = function() {
-      clearTimeout( doit );
-      doit = setTimeout( ()=>{ console.log('resize app'); }, 200 );
-    };
+  /** resize app*/
+  let doit;
+  window.onresize = function() {
+    clearTimeout( doit );
+    doit = setTimeout( ()=>{ console.log('resize app'); }, 200 );
+  };
 };
 
 // pymChild = new pym.Child();

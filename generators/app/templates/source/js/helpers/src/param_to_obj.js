@@ -4,25 +4,25 @@
 */
 export default function (u){
   let r = {};
-  if(u){
-    u = decodeURIComponent(u.replace(/\?|\#/g,'')).split(/\&/);
+  if (u){
+    u = decodeURIComponent(u.replace(/\?|\#/g, '')).split(/\&/);
     u.forEach(function(c, i){
       c = c.split('=');
 
       let key = c[0].toLowerCase();
       let value = c[1];
-      if(/^(null|false|true|[0-9]+)$/.test(value)){
+      if (/^(null|false|true|[0-9]+)$/.test(value)){
         value = JSON.parse(value);
       }
 
       if ( key.match(/\[\]/g)){
         key = key.replace(/\[\]/g, '');
 
-        if(!r[key]){
-            r[key] = [];
+        if (!r[key]){
+          r[key] = [];
         }
         r[key].push(value);
-      }else{
+      } else {
 
         r[key] = value;
       }
