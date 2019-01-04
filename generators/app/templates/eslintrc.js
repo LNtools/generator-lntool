@@ -23,7 +23,7 @@ module.exports = {
         "dot-notation": "error",
         "no-redeclare": "error",
         "no-self-assign": "error",
-        "no-useless-escape": "error",
+        // "no-useless-escape": "error",
         "comma-spacing": ["warn", { "before": false, "after": true }],
         "key-spacing": ["error",
           {
