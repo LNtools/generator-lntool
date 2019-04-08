@@ -20,19 +20,12 @@ let regexImg = /\"?src"?\:.?"?(img)\/\w+.\w{3}"?/g;
 let regexImgBg = /window\.PATH_APP\=\"\"\;?/g;
 let URL_NACION =  gulp_opts.conf.absolutePath;
 
-
-gulp.task('lint', () => {
-
-    gulp.src(gulp_opts.conf.app_cwd+'js/**/*.js')
-        .pipe(eslint())
-        .pipe(eslint.format())
-        // .pipe(eslint.failAfterError())
-})
-
-gulp.task('build_js', ['lint'], () => {
+gulp.task('build_js', () => {
 
     gulp.src(gulp_opts.conf.app_cwd+'js/main.js')
         // .pipe(gulpif(isDev, lint())) // JS lint tas
+        .pipe(eslint())
+        .pipe(eslint.format())
         .pipe(bro({
             debug: isDev,
             transform: [
