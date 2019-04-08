@@ -1,22 +1,23 @@
-let loader= {
+let loader = {
   $loader: document.getElementById('preload'),
   interval: null,
-  anima: function () { 
+  anima: function () {
     let canvas = document.getElementById('spinner');
     let context = canvas.getContext('2d');
     let start = new Date();
-    let lines = 26,  
-      cW = context.canvas.width,
-      cH = context.canvas.height;
+    let lines = 26;
 
-    let draw = function() {
-	  	let rotation = parseInt(((new Date() - start) / 1000) * lines) / lines;
+    let cW = context.canvas.width;
+
+    let cH = context.canvas.height;
+
+    let draw = function () {
+      let rotation = parseInt(((new Date() - start) / 1000) * lines) / lines;
       context.save();
       context.clearRect(0, 0, cW, cH);
       context.translate(cW / 2, cH / 2);
       context.rotate(Math.PI * 2 * rotation);
       for (let i = 0; i < lines; i++) {
-
         context.beginPath();
         context.rotate(Math.PI * 2 / lines);
         context.moveTo(cW / 5, 0);
@@ -25,24 +26,22 @@ let loader= {
         context.strokeStyle = 'rgba(51, 85, 119,' + i / lines + ')';
         context.stroke();
       }
-  		
-  		context.restore();            
+
+      context.restore();
     };
 
     this.interval = window.setInterval(draw, 1000 / 30);
     // this.show();
-  
   },
-  
-  /* show: function() { 
-  	//this.$loader.removeClass("off").fadeIn(); 
-  	this.$loader.classList.remove('off');
-  },*/
-  
-  hide: function() { 
-    clearInterval(this.interval);
-  	this.$loader.remove();
 
+  /* show: function() {
+    //this.$loader.removeClass("off").fadeIn();
+    this.$loader.classList.remove('off');
+  }, */
+
+  hide: function () {
+    clearInterval(this.interval);
+    this.$loader.remove();
   }
 
 };

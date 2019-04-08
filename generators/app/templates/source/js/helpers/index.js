@@ -1,4 +1,9 @@
-export { default as driveApi } from './src/driveApi';
-export { default as bucketImg } from './src/bucketImg';
-export { default as paramToObj } from './src/param_to_obj';
-export { default as formatNumber } from './src/formatNumber';
+export { default as formatNumber } from './formatNumber';
+// export { default as imageSrc } from './imageSrc';
+// export { default as ifIsIE } from './ifIsIE';
+// export { default as sortArrayBykey } from './sortArrayBykey';
+export { default as cloneVar } from './cloneVar';
+// export { default as loadScript } from './loadScript';
+// export { default as checkIsMobile } from './checkIsMobile';
+export { default as driveApi } from './driveApi';
+export { default as normalizeN } from './normalize_number';
