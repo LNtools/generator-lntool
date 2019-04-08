@@ -1,18 +1,40 @@
 <!-- HACK html libre styles -->
- <style>
-        body header#cabezal.desplegado.logueado .logueo .desplegable-usuario a.salir, 
-        body header#cabezal.desplegado.suscripto .logueo .desplegable-usuario a.salir,
-        body header#cabezal.desplegado.logueado .icon-menu-desktop:after, 
-        body header#cabezal.desplegado.suscripto .icon-menu-desktop:after{
-            color:#fff;
-        }
+<style>
 
-        @media screen and (max-width: 767px){
-            body header .herramientas button{
-               background: #262626 !important;
-                color: #fff !important;
-                border: 1px solid #464646 !important; 
-            }
-        }
-</style>
+    body main{
+        overflow: initial !important;
+        max-width: inherit;
+        padding: 0px !important;
+    }
+    
+    header {
+        padding: 0px;
+        border-bottom: 0px solid #dadada;
+        position: fixed;
+        top: 0;
+    }
+    
+    body main:not(.storytelling) {
+        margin-top: 69px;
+    }
+
+    /* ---- estilo negro ---- */
+
+    /*
+    .header__nav__menu{ 
+        border:0;
+    }
+    
+    .--herramientas{
+        display: none !important;
+    }
+    
+    
+    .header.nota.nav-down li.header__nav__menu__item.\--titulo-fijo a:before, .header.nota.nav-up li.header__nav__menu__item.\--titulo-fijo a:before,
+    .header.nota.nav-down li.header__nav__menu__item.\--titulo-fijo, .header.nota.nav-up li.header__nav__menu__item.\--titulo-fijo{
+        color: #ffffff;
+    }
+    */
+    
+    </style>
 <!-- HACK html libre styles -->

@@ -1,32 +1,51 @@
+<!-- HACK html libre styles -->
+<style>
 
- <style>
-        body header#cabezal.desplegado.logueado .logueo .desplegable-usuario a.salir,
-        body header#cabezal.desplegado.suscripto .logueo .desplegable-usuario a.salir,
-        body header#cabezal.desplegado.logueado .icon-menu-desktop:after,
-        body header#cabezal.desplegado.suscripto .icon-menu-desktop:after{
-            color:#fff;
-        }
-
-        @media screen and (max-width: 767px){
-            body header .herramientas button{
-               background: #262626 !important;
-                color: #fff !important;
-                border: 1px solid #464646 !important;
-            }
-        }
-</style>
-<script>
-        var header = document.getElementById("cabezal");
-        if (header) {
-            header.classList.add("transparente");
-            header.style.background = "#262626";
-            header.style.borderBottom = "1px solid #727272";
-
-        }
-        var nota = document.getElementById("item-nota");
-        if (nota) {
-            nota.style.maxWidth = "100%";
-            nota.style.marginTop = "50px";
-            nota.style.padding = "0px";
-        }
-</script>
+    body main{
+        overflow: initial !important;
+        max-width: inherit;
+        padding: 0px !important;
+    }
+    
+    header {
+        padding: 0px;
+        border-bottom: 0px solid #dadada;
+        position: fixed;
+        top: 0;
+    }
+    
+    body main:not(.storytelling) {
+        margin-top: 69px;
+    }
+    
+    
+    </style>
+    
+    <!-- ---- estilo negro ---- -->
+    
+    <!--
+    <style>
+    .header__nav__menu{ 
+        border:0;
+    }
+    
+    .--herramientas{
+        display: none !important;
+    }
+    
+    
+    .header.nota.nav-down li.header__nav__menu__item.\--titulo-fijo a:before, .header.nota.nav-up li.header__nav__menu__item.\--titulo-fijo a:before,
+    .header.nota.nav-down li.header__nav__menu__item.\--titulo-fijo, .header.nota.nav-up li.header__nav__menu__item.\--titulo-fijo{
+        color: #ffffff;
+    }
+    
+    </style>
+    
+    <script>
+        document.body.classList.add("bomba");
+    </script>
+    -->
+    
+    <!-- estilo negro -->
+    
+    <!-- HACK html libre styles -->
